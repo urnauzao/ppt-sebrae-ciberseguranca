@@ -1,0 +1,1331 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Julio Urnau — Engenheiro de Software Sênior</title>
+    <meta name="description"
+        content="Engenheiro de Software Sênior e Tech Lead. 10 anos construindo e sustentando um SaaS multitenant de e-commerce: PHP/Laravel, Go, PostgreSQL, Docker Swarm, AWS e IA aplicada." />
+    <meta name="author" content="Julio Cesar Urnau de Almeida" />
+    <meta name="theme-color" content="#061419" />
+
+    <meta property="og:type" content="profile" />
+    <meta property="og:title" content="Julio Urnau — Engenheiro de Software Sênior · Tech Lead" />
+    <meta property="og:description"
+        content="10 anos construindo, escalando e mantendo de pé um SaaS multitenant com 500+ empresas ativas e ~30 mil pedidos por dia." />
+    <meta property="og:url" content="https://urnau.com.br/perfil" />
+    <meta property="og:locale" content="pt_BR" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link rel="canonical" href="https://urnau.com.br/perfil" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600&family=Sora:wght@300;400;600;700&display=swap"
+        rel="stylesheet" />
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%23061419'/><text y='68' x='50' text-anchor='middle' font-size='54' font-family='sans-serif' font-weight='700' fill='%235eead4'>U</text></svg>" />
+
+    <style>
+        :root {
+            --bg: #061419;
+            --bg-2: #0a222c;
+            --bg-3: #0d2e3a;
+            --glass: rgba(255, 255, 255, .052);
+            --glass-strong: rgba(255, 255, 255, .085);
+            --stroke: rgba(255, 255, 255, .11);
+            --stroke-soft: rgba(255, 255, 255, .06);
+            --text: #e9f3f5;
+            --muted: #8fabb4;
+            --dim: #6c8891;
+            --accent: #5eead4;
+            --accent-2: #38bdf8;
+            --warm: #fbbf77;
+            --radius: 20px;
+            --maxw: 1080px;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            -webkit-text-size-adjust: 100%;
+        }
+
+        body {
+            margin: 0;
+            background: var(--bg);
+            color: var(--text);
+            font-family: 'Figtree', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+            font-size: 17px;
+            line-height: 1.68;
+            letter-spacing: -.005em;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ===== Fundo: petróleo escuro + halos ===== */
+        .bg-wrap {
+            position: fixed;
+            inset: 0;
+            z-index: -1;
+            overflow: hidden;
+            background:
+                radial-gradient(1100px 760px at 78% -8%, #11485a 0%, transparent 62%),
+                radial-gradient(900px 700px at 8% 12%, #0d3744 0%, transparent 58%),
+                radial-gradient(1000px 900px at 50% 118%, #0f3a48 0%, transparent 60%),
+                linear-gradient(170deg, #061419 0%, #07191f 45%, #061519 100%);
+        }
+
+        .bg-wrap::after {
+            content: '';
+            position: absolute;
+            inset: -20%;
+            background-image:
+                linear-gradient(rgba(255, 255, 255, .022) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, .022) 1px, transparent 1px);
+            background-size: 64px 64px;
+            mask-image: radial-gradient(70% 55% at 50% 30%, #000 0%, transparent 85%);
+            -webkit-mask-image: radial-gradient(70% 55% at 50% 30%, #000 0%, transparent 85%);
+        }
+
+        .orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(90px);
+            opacity: .4;
+        }
+
+        .orb.a {
+            width: 460px;
+            height: 460px;
+            top: -140px;
+            right: -110px;
+            background: #0ea5a0;
+        }
+
+        .orb.b {
+            width: 400px;
+            height: 400px;
+            bottom: 8%;
+            left: -140px;
+            background: #0369a1;
+            opacity: .32;
+        }
+
+        /* ===== Layout ===== */
+        .shell {
+            max-width: var(--maxw);
+            margin: 0 auto;
+            padding: 0 16px;
+        }
+
+        section {
+            padding: 58px 0;
+        }
+
+        @media (min-width:760px) {
+            section {
+                padding: 82px 0;
+            }
+        }
+
+        /* ===== Vidro ===== */
+        .glass {
+            background: var(--glass);
+            border: 1px solid var(--stroke);
+            border-radius: var(--radius);
+            backdrop-filter: blur(18px) saturate(140%);
+            -webkit-backdrop-filter: blur(18px) saturate(140%);
+            box-shadow: 0 1px 0 rgba(255, 255, 255, .07) inset, 0 18px 48px -24px rgba(0, 0, 0, .75);
+        }
+
+        /* ===== Tipografia ===== */
+        h1,
+        h2,
+        h3,
+        .mono-ish {
+            font-family: 'Sora', ui-sans-serif, system-ui, sans-serif;
+        }
+
+        h1 {
+            font-size: clamp(2.3rem, 7.2vw, 4.1rem);
+            line-height: 1.03;
+            font-weight: 700;
+            letter-spacing: -.035em;
+            margin: 0 0 14px;
+        }
+
+        h2 {
+            font-size: clamp(1.5rem, 3.6vw, 2.1rem);
+            line-height: 1.18;
+            font-weight: 600;
+            letter-spacing: -.028em;
+            margin: 0 0 10px;
+        }
+
+        h3 {
+            font-size: 1.08rem;
+            font-weight: 600;
+            letter-spacing: -.018em;
+            margin: 0 0 8px;
+            line-height: 1.34;
+        }
+
+        p {
+            margin: 0 0 14px;
+            color: #cfe2e6;
+        }
+
+        a {
+            color: var(--accent);
+        }
+
+        .eyebrow {
+            font-family: 'Sora', sans-serif;
+            font-size: .745rem;
+            font-weight: 600;
+            letter-spacing: .19em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin: 0 0 14px;
+            display: flex;
+            align-items: center;
+            gap: 11px;
+        }
+
+        .eyebrow::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(90deg, rgba(94, 234, 212, .4), transparent);
+        }
+
+        .lead {
+            font-size: clamp(1.03rem, 2.1vw, 1.19rem);
+            color: #c3d9de;
+            max-width: 68ch;
+        }
+
+        .muted {
+            color: var(--muted);
+        }
+
+        .small {
+            font-size: .9rem;
+        }
+
+        strong {
+            color: #fff;
+            font-weight: 600;
+        }
+
+        /* ===== HERO ===== */
+        .hero {
+            padding-top: 64px;
+            padding-bottom: 20px;
+        }
+
+        @media (min-width:760px) {
+            .hero {
+                padding-top: 110px;
+            }
+        }
+
+        .hero-top {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .mark {
+            width: 54px;
+            height: 54px;
+            flex: none;
+            border-radius: 16px;
+            display: grid;
+            place-items: center;
+            font-family: 'Sora', sans-serif;
+            font-weight: 700;
+            font-size: 1.3rem;
+            color: #04222a;
+            background: linear-gradient(145deg, var(--accent), var(--accent-2));
+            box-shadow: 0 10px 30px -10px rgba(94, 234, 212, .55);
+        }
+
+        .hero-top .who {
+            font-family: 'Sora', sans-serif;
+            font-size: .88rem;
+            color: var(--muted);
+            line-height: 1.45;
+        }
+
+        .hero-top .who b {
+            color: #dceaed;
+            font-weight: 600;
+        }
+
+        .title-sub {
+            font-family: 'Sora', sans-serif;
+            font-size: clamp(1.02rem, 2.6vw, 1.3rem);
+            font-weight: 400;
+            color: var(--accent);
+            letter-spacing: -.012em;
+            margin: 0 0 22px;
+        }
+
+        .title-sub span {
+            color: var(--dim);
+            padding: 0 4px;
+        }
+
+        .chips {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 7px;
+            margin: 24px 0 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .chip {
+            font-size: .795rem;
+            font-family: 'Sora', sans-serif;
+            font-weight: 400;
+            padding: 5px 11px;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, .045);
+            border: 1px solid var(--stroke-soft);
+            color: #b9d2d8;
+            white-space: nowrap;
+        }
+
+        .cta-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 32px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+            padding: 12px 20px;
+            border-radius: 13px;
+            font-family: 'Sora', sans-serif;
+            font-size: .92rem;
+            font-weight: 600;
+            text-decoration: none;
+            border: 1px solid var(--stroke);
+            background: var(--glass);
+            color: #e4f1f3;
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            transition: transform .18s ease, background .18s ease, border-color .18s ease;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            background: var(--glass-strong);
+            border-color: rgba(94, 234, 212, .42);
+        }
+
+        .btn.primary {
+            background: linear-gradient(145deg, var(--accent), #2dd4bf);
+            color: #04222a;
+            border-color: transparent;
+            box-shadow: 0 14px 34px -14px rgba(94, 234, 212, .7);
+        }
+
+        .btn.primary:hover {
+            background: linear-gradient(145deg, #7df0dd, #38d9c6);
+        }
+
+        .btn svg {
+            width: 17px;
+            height: 17px;
+            flex: none;
+        }
+
+        /* ===== Métricas ===== */
+        .metrics {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            margin-top: 46px;
+        }
+
+        @media (min-width:700px) {
+            .metrics {
+                grid-template-columns: repeat(4, 1fr);
+                gap: 14px;
+            }
+        }
+
+        .metric {
+            padding: 20px 16px;
+            text-align: left;
+        }
+
+        .metric .n {
+            font-family: 'Sora', sans-serif;
+            font-size: clamp(1.5rem, 4.3vw, 2rem);
+            font-weight: 700;
+            letter-spacing: -.035em;
+            line-height: 1;
+            background: linear-gradient(135deg, #fff 10%, var(--accent) 115%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            display: block;
+            margin-bottom: 7px;
+        }
+
+        .metric .l {
+            font-size: .815rem;
+            color: var(--muted);
+            line-height: 1.38;
+        }
+
+        /* ===== Objeção ===== */
+        .objection {
+            padding: 30px 22px;
+            border-left: 2px solid var(--accent);
+            background: linear-gradient(100deg, rgba(94, 234, 212, .075), rgba(255, 255, 255, .03) 55%);
+        }
+
+        @media (min-width:760px) {
+            .objection {
+                padding: 42px 40px;
+            }
+        }
+
+        .pull {
+            font-family: 'Sora', sans-serif;
+            font-size: clamp(1.18rem, 3.1vw, 1.6rem);
+            font-weight: 300;
+            line-height: 1.42;
+            letter-spacing: -.025em;
+            color: #fff;
+            margin: 0 0 22px;
+        }
+
+        .checks {
+            list-style: none;
+            padding: 0;
+            margin: 24px 0 0;
+            display: grid;
+            gap: 13px;
+        }
+
+        .checks li {
+            display: flex;
+            gap: 12px;
+            align-items: flex-start;
+            color: #cde0e4;
+            font-size: .975rem;
+            line-height: 1.55;
+        }
+
+        .checks li::before {
+            content: '';
+            flex: none;
+            width: 7px;
+            height: 7px;
+            margin-top: 10px;
+            border-radius: 2px;
+            background: var(--accent);
+            transform: rotate(45deg);
+            box-shadow: 0 0 12px rgba(94, 234, 212, .75);
+        }
+
+        /* ===== Cases ===== */
+        .cases {
+            display: grid;
+            gap: 14px;
+            margin-top: 34px;
+        }
+
+        @media (min-width:860px) {
+            .cases {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .cases .wide {
+                grid-column: 1 / -1;
+            }
+        }
+
+        .case {
+            padding: 24px 22px;
+            position: relative;
+            overflow: hidden;
+            transition: transform .22s ease, border-color .22s ease;
+        }
+
+        .case:hover {
+            transform: translateY(-3px);
+            border-color: rgba(94, 234, 212, .28);
+        }
+
+        .case .tag {
+            font-family: 'Sora', sans-serif;
+            font-size: .68rem;
+            font-weight: 600;
+            letter-spacing: .15em;
+            text-transform: uppercase;
+            color: var(--accent-2);
+            display: block;
+            margin-bottom: 11px;
+        }
+
+        .case .tag.warm {
+            color: var(--warm);
+        }
+
+        .case .impact {
+            font-family: 'Sora', sans-serif;
+            font-size: 1.42rem;
+            font-weight: 700;
+            letter-spacing: -.03em;
+            color: #fff;
+            line-height: 1.12;
+            margin: 0 0 9px;
+        }
+
+        .case p {
+            font-size: .945rem;
+            color: #b9d0d6;
+            margin: 0;
+        }
+
+        .case p+p {
+            margin-top: 10px;
+        }
+
+        .case .how {
+            list-style: none;
+            padding: 14px 0 0;
+            margin: 14px 0 0;
+            border-top: 1px solid var(--stroke-soft);
+            display: grid;
+            gap: 7px;
+        }
+
+        .case .how li {
+            font-size: .875rem;
+            color: var(--muted);
+            padding-left: 15px;
+            position: relative;
+            line-height: 1.5;
+        }
+
+        .case .how li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 9px;
+            width: 6px;
+            height: 1px;
+            background: var(--accent);
+        }
+
+        /* ===== Liderança ===== */
+        .split {
+            display: grid;
+            gap: 14px;
+        }
+
+        @media (min-width:860px) {
+            .split {
+                grid-template-columns: 1.15fr .85fr;
+                align-items: start;
+            }
+        }
+
+        .panel {
+            padding: 26px 22px;
+        }
+
+        @media (min-width:760px) {
+            .panel {
+                padding: 32px 30px;
+            }
+        }
+
+        .quote {
+            font-size: .96rem;
+            color: #c6dbe0;
+            font-style: italic;
+            line-height: 1.62;
+            margin: 0 0 14px;
+        }
+
+        .quote-by {
+            font-family: 'Sora', sans-serif;
+            font-size: .8rem;
+            color: var(--muted);
+            font-style: normal;
+        }
+
+        .quote-by b {
+            color: #dcebee;
+            font-weight: 600;
+        }
+
+        /* ===== Stack ===== */
+        .stack-grid {
+            display: grid;
+            gap: 12px;
+            margin-top: 30px;
+        }
+
+        @media (min-width:700px) {
+            .stack-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .stack-block {
+            padding: 20px 20px 18px;
+        }
+
+        .stack-block h3 {
+            font-size: .83rem;
+            letter-spacing: .13em;
+            text-transform: uppercase;
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .stack-block .chips {
+            margin-top: 0;
+        }
+
+        /* ===== Formatos ===== */
+        .modes {
+            display: grid;
+            gap: 12px;
+            margin-top: 30px;
+        }
+
+        @media (min-width:760px) {
+            .modes {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        .mode {
+            padding: 24px 22px;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .mode .ico {
+            width: 38px;
+            height: 38px;
+            border-radius: 11px;
+            display: grid;
+            place-items: center;
+            background: rgba(94, 234, 212, .12);
+            border: 1px solid rgba(94, 234, 212, .22);
+            margin-bottom: 14px;
+            color: var(--accent);
+        }
+
+        .mode .ico svg {
+            width: 19px;
+            height: 19px;
+        }
+
+        .mode p {
+            font-size: .915rem;
+            color: var(--muted);
+            margin: 0;
+        }
+
+        /* ===== Timeline ===== */
+        .tl {
+            list-style: none;
+            padding: 0;
+            margin: 30px 0 0;
+            display: grid;
+            gap: 2px;
+        }
+
+        .tl li {
+            display: grid;
+            grid-template-columns: 92px 1fr;
+            gap: 16px;
+            padding: 15px 0;
+            border-bottom: 1px solid var(--stroke-soft);
+            align-items: baseline;
+        }
+
+        @media (max-width:620px) {
+            .tl li {
+                grid-template-columns: 1fr;
+                gap: 2px;
+            }
+        }
+
+        .tl .yr {
+            font-family: 'Sora', sans-serif;
+            font-size: .83rem;
+            color: var(--accent);
+            font-weight: 600;
+            letter-spacing: .02em;
+        }
+
+        .tl .what b {
+            display: block;
+            font-family: 'Sora', sans-serif;
+            font-size: .98rem;
+            color: #e6f2f4;
+            font-weight: 600;
+            margin-bottom: 2px;
+        }
+
+        .tl .what span {
+            font-size: .895rem;
+            color: var(--muted);
+        }
+
+        /* ===== Formação ===== */
+        .edu {
+            display: grid;
+            gap: 10px;
+            margin-top: 28px;
+        }
+
+        @media (min-width:760px) {
+            .edu {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .edu div {
+            padding: 17px 19px;
+            border-radius: 15px;
+            background: rgba(255, 255, 255, .035);
+            border: 1px solid var(--stroke-soft);
+        }
+
+        .edu b {
+            display: block;
+            font-family: 'Sora', sans-serif;
+            font-size: .94rem;
+            color: #e6f2f4;
+            font-weight: 600;
+            line-height: 1.35;
+            margin-bottom: 3px;
+        }
+
+        .edu span {
+            font-size: .85rem;
+            color: var(--muted);
+        }
+
+        /* ===== Contato ===== */
+        .contact {
+            padding: 38px 24px;
+            text-align: center;
+            background: linear-gradient(150deg, rgba(94, 234, 212, .1), rgba(56, 189, 248, .055) 50%, rgba(255, 255, 255, .03));
+        }
+
+        @media (min-width:760px) {
+            .contact {
+                padding: 60px 48px;
+            }
+        }
+
+        .contact .cta-row {
+            justify-content: center;
+        }
+
+        footer {
+            padding: 36px 0 54px;
+            text-align: center;
+            font-size: .83rem;
+            color: var(--dim);
+            line-height: 1.7;
+        }
+
+        footer a {
+            color: var(--muted);
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            color: var(--accent);
+        }
+
+        /* ===== Reveal ===== */
+        .rv {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity .6s cubic-bezier(.22, 1, .36, 1), transform .6s cubic-bezier(.22, 1, .36, 1);
+        }
+
+        .rv.in {
+            opacity: 1;
+            transform: none;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+
+            *,
+            .rv {
+                animation: none !important;
+                transition: none !important;
+                opacity: 1 !important;
+                transform: none !important;
+            }
+
+            html {
+                scroll-behavior: auto;
+            }
+        }
+
+        :focus-visible {
+            outline: 2px solid var(--accent);
+            outline-offset: 3px;
+            border-radius: 6px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="bg-wrap" aria-hidden="true">
+        <div class="orb a"></div>
+        <div class="orb b"></div>
+    </div>
+
+    <!-- ================= HERO ================= -->
+    <header class="hero shell">
+        <div class="hero-top rv">
+            <div class="mark" aria-hidden="true">JU</div>
+            <div class="who">
+                <b>Julio Cesar Urnau de Almeida</b><br />
+                São Paulo · SP — presencial, híbrido ou remoto
+            </div>
+        </div>
+
+        <h1 class="rv">Engenheiro de<br />Software Sênior</h1>
+        <p class="title-sub rv">Tech Lead <span>·</span> Arquitetura <span>·</span> Code Review <span>·</span> IA
+            aplicada</p>
+
+        <p class="lead rv">Há <strong>10 anos</strong> eu construo, escalo e seguro de pé um SaaS multitenant de
+            e-commerce: <strong>500+ empresas ativas</strong>, cerca de <strong>30 mil pedidos por dia</strong> e mais
+            de <strong>20 repositórios</strong> em produção. Backend em PHP e Go, PostgreSQL afinado na unha,
+            infraestrutura em Docker Swarm e AWS — e a responsabilidade pelo que quebra às duas da manhã.</p>
+
+        <ul class="chips rv">
+            <li class="chip">PHP 8 · Laravel</li>
+            <li class="chip">Go</li>
+            <li class="chip">PostgreSQL</li>
+            <li class="chip">React</li>
+            <li class="chip">Docker Swarm</li>
+            <li class="chip">AWS</li>
+            <li class="chip">RabbitMQ</li>
+            <li class="chip">Redis</li>
+            <li class="chip">MCP · LLMs</li>
+            <li class="chip">LGPD</li>
+        </ul>
+
+        <div class="cta-row rv">
+            <a class="btn primary" href="mailto:julio.cesar.08.08.93@gmail.com?subject=Oportunidade%20—%20contato%20via%20urnau.com.br%2Fperfil">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" aria-hidden="true">
+                    <rect x="2" y="4" width="20" height="16" rx="2" />
+                    <path d="m22 7-10 6L2 7" />
+                </svg>
+                Falar comigo
+            </a>
+            <a class="btn" href="https://www.linkedin.com/in/urnau/" target="_blank" rel="noopener">LinkedIn</a>
+            <a class="btn" href="https://github.com/urnauzao" target="_blank" rel="noopener">GitHub</a>
+            <a class="btn" href="https://www.youtube.com/@devtechtips" target="_blank" rel="noopener">YouTube</a>
+        </div>
+
+        <div class="metrics">
+            <div class="metric glass rv"><span class="n">10 anos</span><span class="l">à frente da engenharia de um
+                    SaaS em produção</span></div>
+            <div class="metric glass rv"><span class="n">~30 mil</span><span class="l">pedidos processados por
+                    dia</span></div>
+            <div class="metric glass rv"><span class="n">500+</span><span class="l">empresas ativas na
+                    plataforma</span></div>
+            <div class="metric glass rv"><span class="n">30+</span><span class="l">profissionais contratados e
+                    formados</span></div>
+        </div>
+    </header>
+
+    <!-- ================= OBJEÇÃO ================= -->
+    <section class="shell">
+        <p class="eyebrow rv">O elefante na sala</p>
+        <h2 class="rv">Meu cargo diz CTO.<br />Meu dia diz outra coisa.</h2>
+
+        <div class="objection glass rv" style="margin-top:26px">
+            <p class="pull">“CTO de empresa enxuta não é crachá de reunião. Foram 10 anos de mão no código todos os
+                dias — e a conta do servidor no meu nome.”</p>
+
+            <p>Eu sei exatamente o que acontece quando um recrutador lê “CTO” num currículo para uma vaga de
+                desenvolvedor sênior: ele presume alguém que esqueceu como se escreve código e que vai querer o cargo
+                de alguém. Então deixa eu tirar isso do caminho logo no começo da conversa.</p>
+
+            <ul class="checks">
+                <li><strong>Eu escrevo código todo dia.</strong> Nos últimos meses: otimização de queries em
+                    PostgreSQL, API pública em Go, resposta a CVE crítico do PHP, correção de falha de kernel em
+                    containers. Nenhum slide envolvido.</li>
+                <li><strong>Não preciso de três meses de ramp-up.</strong> Eu fui, ao mesmo tempo, o arquiteto, o dev
+                    sênior, o DevOps, o revisor e o plantão de produção. Entro entregando.</li>
+                <li><strong>Não estou atrás do cargo de liderança de ninguém.</strong> Se o time precisar de alguém
+                    que puxe, eu puxo. Se não precisar, eu entrego e fico fora do caminho.</li>
+                <li><strong>Já estive do outro lado da mesa.</strong> Contratei mais de 30 pessoas e conduzi
+                    entrevistas técnicas por uma década — eu entendo o que você está tentando avaliar em mim.</li>
+                <li><strong>Senioridade aqui foi testada sob pressão real</strong>, com cliente na linha e receita
+                    parada, não em ambiente de laboratório.</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- ================= CASES ================= -->
+    <section class="shell">
+        <p class="eyebrow rv">Casos reais</p>
+        <h2 class="rv">O que eu fiz acontecer</h2>
+        <p class="lead rv">Cada um destes é um problema que chegou sem aviso, com sistema em produção e usuário do
+            outro lado. Sem reescrita de seis meses, sem comitê.</p>
+
+        <div class="cases">
+
+            <article class="case glass rv">
+                <span class="tag">Performance · PostgreSQL</span>
+                <p class="impact">17s → 3s numa tela crítica</p>
+                <p>Uma tela central do sistema carregava em 17 segundos por causa de um JOIN pesado que só existia
+                    para uma validação. Em vez de tentar otimizar o JOIN, eu removi a necessidade dele: a validação
+                    passou a rodar de forma assíncrona depois do carregamento da página.</p>
+                <ul class="how">
+                    <li>Diagnóstico no plano de execução antes de tocar em qualquer linha</li>
+                    <li>Mudança de arquitetura da tela, não só de índice</li>
+                    <li>Redução de ~82% no tempo de carregamento percebido</li>
+                </ul>
+            </article>
+
+            <article class="case glass rv">
+                <span class="tag">Arquitetura · Go</span>
+                <p class="impact">−90% de latência migrando PHP → Go</p>
+                <p>Conduzi a migração dos microsserviços mais críticos de PHP 7.3 para Go, com corte de 90% no tempo
+                    de resposta das aplicações. O ganho não veio só da linguagem: veio de repensar o fluxo de dados e
+                    o que realmente precisava ser síncrono.</p>
+                <ul class="how">
+                    <li>Migração incremental, serviço a serviço, sem janela de downtime</li>
+                    <li>Convivência dos dois stacks durante toda a transição</li>
+                </ul>
+            </article>
+
+            <article class="case glass rv">
+                <span class="tag warm">Segurança · LGPD</span>
+                <p class="impact">Incidente contido e notificado em menos de 24h</p>
+                <p>Recebi um reporte de pesquisador de segurança sobre exposição de dados sensíveis num sistema
+                    legado. Em menos de 24 horas o ciclo inteiro estava fechado: contenção, revogação de tokens,
+                    expurgo de dados antigos, criptografia aplicada, usuários afetados comunicados e notificação do
+                    incidente protocolada junto à <strong>ANPD</strong>.</p>
+                <ul class="how">
+                    <li>Resposta a incidente ponta a ponta, sem terceirizar a decisão</li>
+                    <li>Comunicação aos titulares e à autoridade dentro do prazo legal</li>
+                    <li>Correção de raiz no código legado, não paliativo</li>
+                </ul>
+            </article>
+
+            <article class="case glass rv">
+                <span class="tag warm">Resposta a CVE</span>
+                <p class="impact">20+ repositórios atualizados em menos de 8h</p>
+                <p>Quando saiu a atualização crítica do PHP em outubro, eu atualizei, testei e fiz deploy em mais de
+                    20 repositórios em menos de um dia de trabalho. Isso só foi possível porque as imagens base já
+                    eram padronizadas, auditadas e atualizadas com frequência — a velocidade na crise foi consequência
+                    da disciplina antes dela.</p>
+                <ul class="how">
+                    <li>Imagens Docker padronizadas e auditadas continuamente</li>
+                    <li>Pipeline de deploy uniforme entre todos os serviços</li>
+                </ul>
+            </article>
+
+            <article class="case glass rv">
+                <span class="tag">Infra · Linux</span>
+                <p class="impact">Falha de kernel diagnosticada em 2 horas</p>
+                <p>Uma versão do kernel do Linux passou a causar falhas de leitura e gravação em disco dentro dos
+                    containers. Em cerca de duas horas eu identifiquei a causa raiz e apliquei a correção em todos os
+                    ambientes afetados — antes que virasse indisponibilidade visível para o usuário.</p>
+            </article>
+
+            <article class="case glass rv">
+                <span class="tag">Integrações</span>
+                <p class="impact">API de marketplace mudou sem aviso: 1h30 até o deploy</p>
+                <p>Um marketplace alterou, sem aviso prévio, a forma de obter os dados do comprador de uma venda. Do
+                    momento em que o problema apareceu até o deploy da correção em produção: uma hora e meia. A
+                    expedição dos vendedores não parou.</p>
+            </article>
+
+            <article class="case glass wide rv">
+                <span class="tag warm">Crise · Continuidade de negócio</span>
+                <p class="impact">10 dias de indisponibilidade e uma estratégia multi-cloud nascida na marra</p>
+                <p>Em 2020 a infraestrutura inteira rodava num único provedor de cloud. Uma falha no lado dele
+                    permitiu um ataque que criptografou diversas instâncias, incluindo as nossas — sem previsão de
+                    solução. Eu tinha backups de banco e variáveis de ambiente em cofre, e foi com isso que reergui a
+                    operação.</p>
+                <p>Levantei todo o ambiente na AWS em cinco dias — sozinho, porque ninguém no time tinha experiência
+                    com AWS. A conta nova sofreu limitação por volume de tráfego, e tive que pivotar de novo, trazendo
+                    uma terceira cloud para parte das instâncias. Encerrada a emergência, replanejei a migração com
+                    calma e testes e, no mesmo ano, levei o core para a AWS em definitivo — onde ele roda até hoje.</p>
+                <ul class="how">
+                    <li>Arquitetura em microsserviços foi o que tornou a migração viável sob pressão</li>
+                    <li>Backups e cofre de segredos testados antes de precisar deles</li>
+                    <li>A partir dali, nunca mais dependência de um único provedor</li>
+                </ul>
+            </article>
+
+            <article class="case glass rv">
+                <span class="tag">Produto · API pública</span>
+                <p class="impact">API prometida em 60 dias, entregue em 45</p>
+                <p>Um cliente estratégico ameaçou sair porque o sistema não tinha API pública. Em vez de prometer o
+                    impossível, sentei com ele, reduzi o escopo ao que realmente resolvia o problema dele e fechei um
+                    prazo de 60 dias corridos. Entreguei em 45 — e ele virou o piloto do recurso que agora está sendo
+                    escalado para a base inteira.</p>
+                <ul class="how">
+                    <li>API em Go, escopo somente leitura, com framework de segurança</li>
+                    <li>RBAC, restrições de acesso e políticas de cota</li>
+                    <li>Webhooks e suporte prévio a MCP, para consumo por agentes de IA</li>
+                    <li>Negociação direta com o cliente: escopo enxuto no lugar de promessa inflada</li>
+                </ul>
+            </article>
+
+            <article class="case glass rv">
+                <span class="tag">Produto · Receita</span>
+                <p class="impact">Da ideia à venda em 2 meses</p>
+                <p>Identifiquei uma oportunidade de mercado e planejei uma extensão de navegador em uma semana. Na
+                    semana seguinte contratei o desenvolvedor, e em dois meses a solução estava sendo comercializada.
+                    Três meses depois do lançamento, a receita do produto já era mais de <strong>6x o custo
+                        operacional</strong> dele.</p>
+                <ul class="how">
+                    <li>Análise de mercado, escopo, contratação e entrega sob minha responsabilidade</li>
+                    <li>Decisão de produto medida por margem, não por vaidade técnica</li>
+                </ul>
+            </article>
+
+            <article class="case glass wide rv">
+                <span class="tag">IA aplicada em produção</span>
+                <p class="impact">8 integrações de IA e 20+ skills sobre dados reais — com guardrails de verdade</p>
+                <p>Levei IA generativa para dentro do produto usando Prism (PHP) como base: são 8 integrações e mais
+                    de 20 skills que usam <em>tool calling</em> sobre os dados reais do usuário no banco. A parte
+                    difícil não foi conectar o modelo — foi garantir que ele jamais veja o que não deve.</p>
+                <ul class="how">
+                    <li>Usuário de banco exclusivo e restrito, com permissão apenas de leitura</li>
+                    <li>Isolamento de tenant garantido na camada da aplicação, não no prompt</li>
+                    <li>Monitoramento completo: prompt de entrada, ação executada e retorno</li>
+                    <li>Catalogação do que os usuários pedem, com curadoria periódica feita por mim para orientar o
+                        roadmap</li>
+                    <li>Produção de conteúdo em vídeo para adoção do recurso pela base</li>
+                </ul>
+            </article>
+
+            <article class="case glass rv">
+                <span class="tag">FinOps</span>
+                <p class="impact">−30% no custo global de infraestrutura</p>
+                <p>Redução de mais de 30% no custo total de cloud através de isolamento de servidores e containers, e
+                    economia superior a 60% ao mover serviços não críticos para um provedor nacional. Custo de
+                    infraestrutura tratado como métrica de engenharia, acompanhada mês a mês.</p>
+            </article>
+
+            <article class="case glass rv">
+                <span class="tag">Entrega contínua</span>
+                <p class="impact">8+ marketplaces e plataformas integrados</p>
+                <p>Mercado Livre, Shopee, Amazon, Magalu, TikTok Shop, Nuvemshop, Shopify, além de ERPs, TMS e meios
+                    de pagamento (Pix, Asaas, Cobre Fácil, Hotmart). Cada um com seu contrato, seu rate limit e sua
+                    mudança sem aviso — mantidos funcionando em produção, em paralelo, por anos.</p>
+            </article>
+
+        </div>
+    </section>
+
+    <!-- ================= LIDERANÇA ================= -->
+    <section class="shell">
+        <p class="eyebrow rv">Time</p>
+        <h2 class="rv">Eu também formo gente</h2>
+        <p class="lead rv">Isso não compete com a mão no código — complementa. Um time que cresce é o que permite que
+            o sênior pare de ser gargalo.</p>
+
+        <div class="split" style="margin-top:30px">
+            <div class="panel glass rv">
+                <h3>30+ contratados, 20+ desenvolvedores, uma década de ajuste de rota</h3>
+                <p>Contratei, treinei, promovi e também desliguei. Errei contratações no começo e fui ficando
+                    assertivo — hoje eu leio rápido quem vai se adaptar à rotina e à cultura e quem vai render de
+                    verdade. Entrevista técnica, onboarding, plano de evolução e conversa difícil: tudo isso passou
+                    por mim.</p>
+                <p>Tenho orgulho particular de três pessoas: um desenvolvedor PJ que trabalha comigo há mais de
+                    <strong>8 anos</strong> e virou meu braço direito; e dois que entraram em início de carreira e
+                    hoje são engenheiros de software — um deles no <strong>Mercado Livre</strong>.</p>
+                <ul class="how" style="list-style:none;padding:14px 0 0;margin:14px 0 0;border-top:1px solid var(--stroke-soft);display:grid;gap:7px">
+                    <li class="small muted">Product Owner · Tech Lead · Code Reviewer · Scrum e Kanban · rituais de
+                        time e eliminação de impedimentos</li>
+                </ul>
+            </div>
+
+            <div class="panel glass rv">
+                <p class="quote">“Comecei a trabalhar com ele quando ainda era desenvolvedor júnior, e grande parte do
+                    que sei hoje sobre carreira, responsabilidade técnica e postura profissional devo aos ensinamentos
+                    e exemplos que ele me proporcionou no dia a dia. (...) Ele não apenas resolvia problemas
+                    complexos, mas também fazia questão de explicar o raciocínio por trás das decisões, incentivando o
+                    pensamento crítico e a autonomia da equipe.”</p>
+                <p class="quote-by"><b>Gabriel Silva</b><br />Engenheiro de Software — trabalhou comigo no LojaHub</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= STACK ================= -->
+    <section class="shell">
+        <p class="eyebrow rv">Stack</p>
+        <h2 class="rv">Com o que eu trabalho</h2>
+
+        <div class="stack-grid">
+            <div class="stack-block glass rv">
+                <h3>Linguagens e frameworks</h3>
+                <ul class="chips">
+                    <li class="chip">PHP 8 / Laravel</li>
+                    <li class="chip">Go</li>
+                    <li class="chip">JavaScript</li>
+                    <li class="chip">React</li>
+                    <li class="chip">Node.js</li>
+                    <li class="chip">Python / FastAPI</li>
+                </ul>
+            </div>
+            <div class="stack-block glass rv">
+                <h3>Arquitetura</h3>
+                <ul class="chips">
+                    <li class="chip">Multitenancy</li>
+                    <li class="chip">Microsserviços</li>
+                    <li class="chip">APIs REST</li>
+                    <li class="chip">DDD</li>
+                    <li class="chip">Clean Architecture</li>
+                    <li class="chip">Hexagonal</li>
+                    <li class="chip">SOLID</li>
+                    <li class="chip">RabbitMQ</li>
+                    <li class="chip">API Gateway</li>
+                    <li class="chip">MCP</li>
+                </ul>
+            </div>
+            <div class="stack-block glass rv">
+                <h3>Dados e performance</h3>
+                <ul class="chips">
+                    <li class="chip">PostgreSQL</li>
+                    <li class="chip">SQL tuning</li>
+                    <li class="chip">Plano de execução</li>
+                    <li class="chip">pgvector</li>
+                    <li class="chip">Redis</li>
+                    <li class="chip">Observabilidade</li>
+                </ul>
+            </div>
+            <div class="stack-block glass rv">
+                <h3>Infra e DevOps</h3>
+                <ul class="chips">
+                    <li class="chip">Docker</li>
+                    <li class="chip">Docker Swarm</li>
+                    <li class="chip">Traefik / Nginx / Caddy</li>
+                    <li class="chip">AWS (EC2, RDS, Lightsail)</li>
+                    <li class="chip">Magalu Cloud</li>
+                    <li class="chip">Debian / CentOS</li>
+                    <li class="chip">GitHub Actions</li>
+                    <li class="chip">CI/CD</li>
+                </ul>
+            </div>
+            <div class="stack-block glass rv">
+                <h3>Segurança e privacidade</h3>
+                <ul class="chips">
+                    <li class="chip">Hardening Linux</li>
+                    <li class="chip">Lynis</li>
+                    <li class="chip">Fail2ban</li>
+                    <li class="chip">RBAC</li>
+                    <li class="chip">Resposta a incidentes</li>
+                    <li class="chip">Backup e DR</li>
+                    <li class="chip">LGPD / ANPD</li>
+                </ul>
+            </div>
+            <div class="stack-block glass rv">
+                <h3>IA aplicada</h3>
+                <ul class="chips">
+                    <li class="chip">Claude Code</li>
+                    <li class="chip">Tool calling</li>
+                    <li class="chip">Servidores MCP</li>
+                    <li class="chip">Skills e agentes</li>
+                    <li class="chip">CrewAI</li>
+                    <li class="chip">Guardrails</li>
+                    <li class="chip">Prism (PHP)</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= FORMATOS ================= -->
+    <section class="shell">
+        <p class="eyebrow rv">Como podemos trabalhar juntos</p>
+        <h2 class="rv">Quatro formatos</h2>
+        <p class="lead rv">Depois de dez anos construindo do zero, meu interesse agora é aplicar essa bagagem em um
+            time e em problemas novos. Escolha o formato que faz sentido para a sua empresa.</p>
+
+        <div class="modes">
+            <div class="mode glass rv">
+                <div class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="2" y="7" width="20" height="14" rx="2" />
+                        <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
+                    </svg></div>
+                <h3>CLT — São Paulo e remoto</h3>
+                <p>Engenheiro de software sênior, tech lead, arquiteto ou AI engineer. Presencial, híbrido ou remoto.
+                    Entro para somar ao time, não para reorganizá-lo.</p>
+            </div>
+
+            <div class="mode glass rv">
+                <div class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 2 3 7v10l9 5 9-5V7z" />
+                        <path d="M3 7l9 5 9-5M12 12v10" />
+                    </svg></div>
+                <h3>PJ — projeto ou alocação</h3>
+                <p>Contratação via <strong>Urnau Tecnologia</strong> ou pela minha pessoa jurídica. Projetos fechados,
+                    integrações, APIs, sustentação de plataforma ou alocação por período.</p>
+            </div>
+
+            <div class="mode glass rv">
+                <div class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M3 3v18h18" />
+                        <path d="m19 9-5 5-4-4-3 3" />
+                    </svg></div>
+                <h3>CTO fracionado · consultoria</h3>
+                <p>Para empresas que ainda não comportam um CTO em tempo integral: arquitetura, decisões de stack,
+                    contratação técnica, custos de cloud, segurança e adequação à LGPD por horas mensais.</p>
+            </div>
+
+            <div class="mode glass rv">
+                <div class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
+                        <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" />
+                    </svg></div>
+                <h3>Mentoria e code review</h3>
+                <p>Revisão de código e arquitetura, acompanhamento de desenvolvedores, auditoria de performance de
+                    PostgreSQL ou de custo de infraestrutura — em formato pontual.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= TRAJETÓRIA ================= -->
+    <section class="shell">
+        <p class="eyebrow rv">Trajetória</p>
+        <h2 class="rv">De onde eu vim</h2>
+
+        <ul class="tl rv">
+            <li>
+                <span class="yr">2017 — hoje</span>
+                <span class="what"><b>CTO e Engenheiro de Software Principal — LojaHub</b><span>Responsável por toda a
+                        engenharia da plataforma: arquitetura, desenvolvimento, infraestrutura multi-cloud, segurança,
+                        custos e times de até 12 pessoas. Sigo sócio da empresa.</span></span>
+            </li>
+            <li>
+                <span class="yr">2022 — 2024</span>
+                <span class="what"><b>Produtor de conteúdo técnico — Dev Tech Tips</b><span>Canal no YouTube sobre
+                        arquitetura de software, DevOps, Go, PHP e boas práticas, para desenvolvedores e para quem
+                        quer entrar na área.</span></span>
+            </li>
+            <li>
+                <span class="yr">2016 — 2017</span>
+                <span class="what"><b>Arte-finalista — Estatex</b><span>Vetorização, artes para serigrafia e
+                        atendimento direto a clientes. Onde aprendi a transformar o que o cliente mal consegue
+                        descrever em entrega pronta.</span></span>
+            </li>
+            <li>
+                <span class="yr">2012 — 2016</span>
+                <span class="what"><b>Exército Brasileiro — Soldado e Cabo</b><span>Setor de operações
+                        administrativas. Hierarquia, disciplina e responsabilidade por processo — coisas que eu
+                        carrego até hoje.</span></span>
+            </li>
+            <li>
+                <span class="yr">2010 — 2012</span>
+                <span class="what"><b>Técnico em manutenção de computadores — Prefeitura de Foz do
+                        Iguaçu</b><span>Parque de cerca de 2.000 máquinas, atendimento presencial em todas as
+                        instalações e participação pioneira na implantação da central de atendimento. Onde tudo
+                        começou.</span></span>
+            </li>
+        </ul>
+    </section>
+
+    <!-- ================= FORMAÇÃO ================= -->
+    <section class="shell">
+        <p class="eyebrow rv">Formação</p>
+        <h2 class="rv">Estudo não parou em 2017</h2>
+
+        <div class="edu">
+            <div class="rv"><b>MBA em Engenharia de Software com IA</b><span>Full Cycle · 2025 — 2026 (em
+                    andamento)</span></div>
+            <div class="rv"><b>Pós-graduação em Privacidade e Proteção de Dados Pessoais (LGPD)</b><span>Faculdade
+                    Descomplica · 2023 — 2024</span></div>
+            <div class="rv"><b>MBA em Engenharia de Software</b><span>FIAP · 2021 — 2022</span></div>
+            <div class="rv"><b>Tecnólogo em Análise e Desenvolvimento de Sistemas</b><span>IFPR · 2015 — 2018 · e
+                    Tecnólogo em Desenvolvimento de Sistemas, FIAP · 2019 — 2020</span></div>
+        </div>
+
+        <p class="small muted rv" style="margin-top:20px">22 certificações entre Full Cycle (Docker, Kubernetes, DDD,
+            Clean Architecture, Arquitetura Hexagonal, RabbitMQ, API Gateway com Kong, CI/CD, SOLID), Alura (AWS EC2,
+            Lightsail) e FIAP. · Português nativo · Espanhol fluente · Inglês intermediário.</p>
+    </section>
+
+    <!-- ================= CONTATO ================= -->
+    <section class="shell">
+        <div class="contact glass rv">
+            <h2>Vamos conversar</h2>
+            <p class="lead" style="margin:0 auto 6px">Se você precisa de alguém que entra, entende o sistema rápido e
+                resolve — com ou sem crise no caminho — me chama. Respondo pessoalmente.</p>
+            <div class="cta-row">
+                <a class="btn primary"
+                    href="mailto:julio.cesar.08.08.93@gmail.com?subject=Oportunidade%20—%20contato%20via%20urnau.com.br%2Fperfil">julio.cesar.08.08.93@gmail.com</a>
+                <a class="btn" href="https://www.linkedin.com/in/urnau/" target="_blank" rel="noopener">LinkedIn</a>
+                <a class="btn" href="https://github.com/urnauzao" target="_blank" rel="noopener">GitHub</a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="shell">
+        <p>Julio Cesar Urnau de Almeida — São Paulo, SP<br />
+            <a href="https://www.linkedin.com/in/urnau/" target="_blank" rel="noopener">LinkedIn</a> ·
+            <a href="https://github.com/urnauzao" target="_blank" rel="noopener">GitHub</a> ·
+            <a href="https://www.youtube.com/@devtechtips" target="_blank" rel="noopener">YouTube</a>
+        </p>
+    </footer>
+
+    <script>
+        (function () {
+            var els = document.querySelectorAll('.rv');
+            if (!('IntersectionObserver' in window) || window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                els.forEach(function (el) { el.classList.add('in'); });
+                return;
+            }
+            var io = new IntersectionObserver(function (entries) {
+                entries.forEach(function (e) {
+                    if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+                });
+            }, { rootMargin: '0px 0px -8% 0px', threshold: .08 });
+            els.forEach(function (el, i) {
+                el.style.transitionDelay = Math.min(i % 6, 5) * 55 + 'ms';
+                io.observe(el);
+            });
+        })();
+    </script>
+</body>
+
+</html>
