@@ -124,12 +124,12 @@
         }
 
         section {
-            padding: 58px 0;
+            padding: 72px 0;
         }
 
         @media (min-width:760px) {
             section {
-                padding: 82px 0;
+                padding: 112px 0;
             }
         }
 
@@ -164,7 +164,7 @@
             line-height: 1.18;
             font-weight: 600;
             letter-spacing: -.028em;
-            margin: 0 0 10px;
+            margin: 0 0 16px;
         }
 
         h3 {
@@ -191,7 +191,7 @@
             letter-spacing: .19em;
             text-transform: uppercase;
             color: var(--accent);
-            margin: 0 0 14px;
+            margin: 0 0 20px;
             display: flex;
             align-items: center;
             gap: 11px;
@@ -358,7 +358,7 @@
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 10px;
-            margin-top: 46px;
+            margin-top: 58px;
         }
 
         @media (min-width:700px) {
@@ -448,22 +448,13 @@
         /* ===== Cases ===== */
         .cases {
             display: grid;
-            gap: 14px;
-            margin-top: 34px;
-        }
-
-        @media (min-width:860px) {
-            .cases {
-                grid-template-columns: 1fr 1fr;
-            }
-
-            .cases .wide {
-                grid-column: 1 / -1;
-            }
+            grid-template-columns: 1fr;
+            gap: 16px;
+            margin-top: 46px;
         }
 
         .case {
-            padding: 24px 22px;
+            padding: 26px 22px;
             position: relative;
             overflow: hidden;
             transition: transform .22s ease, border-color .22s ease;
@@ -489,9 +480,15 @@
             color: var(--warm);
         }
 
+        @media (min-width:760px) {
+            .case {
+                padding: 36px 40px;
+            }
+        }
+
         .case .impact {
             font-family: 'Sora', sans-serif;
-            font-size: 1.42rem;
+            font-size: clamp(1.42rem, 3vw, 1.72rem);
             font-weight: 700;
             letter-spacing: -.03em;
             color: #fff;
@@ -500,7 +497,8 @@
         }
 
         .case p {
-            font-size: .945rem;
+            font-size: .975rem;
+            max-width: 78ch;
             color: #b9d0d6;
             margin: 0;
         }
@@ -519,7 +517,7 @@
         }
 
         .case .how li {
-            font-size: .875rem;
+            font-size: .9rem;
             color: var(--muted);
             padding-left: 15px;
             position: relative;
@@ -583,7 +581,7 @@
         .stack-grid {
             display: grid;
             gap: 12px;
-            margin-top: 30px;
+            margin-top: 42px;
         }
 
         @media (min-width:700px) {
@@ -613,7 +611,7 @@
         .modes {
             display: grid;
             gap: 12px;
-            margin-top: 30px;
+            margin-top: 42px;
         }
 
         @media (min-width:760px) {
@@ -656,7 +654,7 @@
         .tl {
             list-style: none;
             padding: 0;
-            margin: 30px 0 0;
+            margin: 42px 0 0;
             display: grid;
             gap: 2px;
         }
@@ -703,7 +701,7 @@
         .edu {
             display: grid;
             gap: 10px;
-            margin-top: 28px;
+            margin-top: 42px;
         }
 
         @media (min-width:760px) {
@@ -872,26 +870,29 @@
         <p class="eyebrow rv">O elefante na sala</p>
         <h2 class="rv">Meu cargo diz CTO.<br />Meu dia diz outra coisa.</h2>
 
-        <div class="objection glass rv" style="margin-top:26px">
+        <div class="objection glass rv" style="margin-top:38px">
             <p class="pull">“CTO de empresa enxuta não é crachá de reunião. Foram 10 anos de mão no código todos os
                 dias, com a conta do servidor no meu nome.”</p>
 
-            <p>Eu sei exatamente o que acontece quando um recrutador lê “CTO” num currículo para uma vaga de
-                desenvolvedor sênior: ele presume alguém que esqueceu como se escreve código e que vai querer o cargo
-                de alguém. Então deixa eu tirar isso do caminho logo no começo da conversa.</p>
+            <p>Quando alguém lê “CTO” em um currículo para uma vaga de desenvolvedor sênior, é natural supor que
+                seja um profissional afastado do código no dia a dia, ou que esteja de olho em um cargo de liderança.
+                No meu caso não é isso, e prefiro esclarecer logo no início da conversa.</p>
 
             <ul class="checks">
-                <li><strong>Eu escrevo código todo dia.</strong> Nos últimos meses: otimização de queries em
-                    PostgreSQL, API pública em Go, resposta a CVE crítico do PHP, correção de falha de kernel em
-                    containers. Nenhum slide envolvido.</li>
-                <li><strong>Não preciso de três meses de ramp-up.</strong> Eu fui, ao mesmo tempo, o arquiteto, o dev
-                    sênior, o DevOps, o revisor e o plantão de produção. Entro entregando.</li>
-                <li><strong>Não estou atrás do cargo de liderança de ninguém.</strong> Se o time precisar de alguém
-                    que puxe, eu puxo. Se não precisar, eu entrego e fico fora do caminho.</li>
-                <li><strong>Já estive do outro lado da mesa.</strong> Contratei mais de 30 pessoas e conduzi
-                    entrevistas técnicas por uma década. Eu entendo o que você está tentando avaliar em mim.</li>
-                <li><strong>Senioridade aqui foi testada sob pressão real</strong>, com cliente na linha e receita
-                    parada, não em ambiente de laboratório.</li>
+                <li><strong>Eu escrevo código todos os dias.</strong> Para dar exemplos dos últimos meses: otimização
+                    de queries em PostgreSQL, uma API pública em Go, a resposta a uma atualização crítica de segurança
+                    do PHP e a correção de uma falha de kernel que afetava containers em produção.</li>
+                <li><strong>Meu tempo de adaptação costuma ser curto.</strong> Acumulei ao mesmo tempo os papéis de
+                    arquiteto, desenvolvedor sênior, DevOps, revisor e plantão de produção. Estou acostumado a
+                    entender um sistema por inteiro e começar a contribuir cedo.</li>
+                <li><strong>Não estou em busca de um cargo de liderança.</strong> Se o time precisar de alguém para
+                    conduzir uma frente técnica, eu conduzo com prazer. Se não precisar, contribuo como mais um
+                    engenheiro do time, e isso está perfeitamente bem para mim.</li>
+                <li><strong>Já estive do outro lado da mesa.</strong> Conduzi entrevistas técnicas por uma década e
+                    participei da contratação de mais de 30 profissionais. Isso me ajuda a entender o que você
+                    precisa avaliar nesta conversa e a ser objetivo sobre o que eu entrego.</li>
+                <li><strong>Minha senioridade foi construída sob pressão real</strong>, com sistema em produção,
+                    cliente aguardando do outro lado e impacto direto no negócio.</li>
             </ul>
         </div>
     </section>
@@ -1061,7 +1062,7 @@
         <p class="lead rv">Isso não compete com a mão no código, pelo contrário: complementa. Um time que cresce é o que permite que
             o sênior pare de ser gargalo.</p>
 
-        <div class="split" style="margin-top:30px">
+        <div class="split" style="margin-top:42px">
             <div class="panel glass rv">
                 <h3>30+ contratados, 20+ desenvolvedores, uma década de ajuste de rota</h3>
                 <p>Contratei, treinei, promovi e também desliguei. Errei contratações no começo e fui ficando
@@ -1121,14 +1122,22 @@
                 </ul>
             </div>
             <div class="stack-block glass rv">
-                <h3>Dados e performance</h3>
+                <h3>Dados, performance e observabilidade</h3>
                 <ul class="chips">
                     <li class="chip">PostgreSQL</li>
                     <li class="chip">SQL tuning</li>
                     <li class="chip">Plano de execução</li>
                     <li class="chip">pgvector</li>
+                    <li class="chip">MySQL</li>
+                    <li class="chip">MariaDB</li>
+                    <li class="chip">MongoDB</li>
                     <li class="chip">Redis</li>
-                    <li class="chip">Observabilidade</li>
+                    <li class="chip">Valkey</li>
+                    <li class="chip">ElastiCache</li>
+                    <li class="chip">OpenTelemetry</li>
+                    <li class="chip">Jaeger</li>
+                    <li class="chip">Tracing distribuído</li>
+                    <li class="chip">Logs e métricas</li>
                 </ul>
             </div>
             <div class="stack-block glass rv">
@@ -1136,11 +1145,20 @@
                 <ul class="chips">
                     <li class="chip">Docker</li>
                     <li class="chip">Docker Swarm</li>
+                    <li class="chip">Podman</li>
+                    <li class="chip">Kubernetes</li>
                     <li class="chip">Traefik / Nginx / Caddy</li>
-                    <li class="chip">AWS (EC2, RDS, Lightsail)</li>
+                    <li class="chip">AWS EC2</li>
+                    <li class="chip">AWS ECS</li>
+                    <li class="chip">AWS ECR</li>
+                    <li class="chip">AWS RDS</li>
+                    <li class="chip">ElastiCache</li>
+                    <li class="chip">S3</li>
+                    <li class="chip">Secrets Manager</li>
+                    <li class="chip">Lightsail</li>
                     <li class="chip">Magalu Cloud</li>
                     <li class="chip">Debian / CentOS</li>
-                    <li class="chip">GitHub Actions</li>
+                    <li class="chip">Bitbucket Pipelines</li>
                     <li class="chip">CI/CD</li>
                 </ul>
             </div>
@@ -1150,6 +1168,7 @@
                     <li class="chip">Hardening Linux</li>
                     <li class="chip">Lynis</li>
                     <li class="chip">Fail2ban</li>
+                    <li class="chip">Detecção de rootkit</li>
                     <li class="chip">RBAC</li>
                     <li class="chip">Resposta a incidentes</li>
                     <li class="chip">Backup e DR</li>
@@ -1164,6 +1183,7 @@
                     <li class="chip">Servidores MCP</li>
                     <li class="chip">Skills e agentes</li>
                     <li class="chip">CrewAI</li>
+                    <li class="chip">RAG / pgvector</li>
                     <li class="chip">Guardrails</li>
                     <li class="chip">Prism (PHP)</li>
                 </ul>
