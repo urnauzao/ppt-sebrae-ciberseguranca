@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Julio Urnau | Engenheiro de Software Sênior</title>
+    <title>Julio Cesar Urnau de Almeida</title>
     <meta name="description"
         content="Engenheiro de Software Sênior e Tech Lead. 10 anos construindo e sustentando um SaaS multitenant de e-commerce: PHP/Laravel, Go, PostgreSQL, Docker Swarm, AWS e IA aplicada." />
     <meta name="author" content="Julio Cesar Urnau de Almeida" />
@@ -13,7 +13,7 @@
     <meta property="og:type" content="profile" />
     <meta property="og:title" content="Julio Urnau | Engenheiro de Software Sênior · Tech Lead" />
     <meta property="og:description"
-        content="10 anos construindo, escalando e mantendo de pé um SaaS multitenant com 500+ empresas ativas e ~30 mil pedidos por dia." />
+        content="10 anos planejando, construindo, escalando e mantendo no ar um SaaS multitenant com 500+ empresas ativas e 50 mil pedidos por dia." />
     <meta property="og:url" content="https://urnau.com.br/perfil" />
     <meta property="og:locale" content="pt_BR" />
     <meta name="twitter:card" content="summary_large_image" />
@@ -123,13 +123,30 @@
             padding: 0 16px;
         }
 
-        section {
-            padding: 104px 0 64px;
+        section.shell {
+            position: relative;
+            padding: 132px 16px 56px;
+        }
+
+        /* divisória fina no limite entre as seções: separa melhor do que espaço puro */
+        section.shell::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: min(calc(100% - 32px), var(--maxw));
+            height: 1px;
+            background: linear-gradient(90deg,
+                    transparent 0%,
+                    rgba(255, 255, 255, .11) 18%,
+                    rgba(255, 255, 255, .11) 82%,
+                    transparent 100%);
         }
 
         @media (min-width:760px) {
-            section {
-                padding: 168px 0 96px;
+            section.shell {
+                padding: 200px 16px 80px;
             }
         }
 
@@ -186,7 +203,7 @@
 
         .eyebrow {
             font-family: 'Sora', sans-serif;
-            font-size: .745rem;
+            font-size: .79rem;
             font-weight: 600;
             letter-spacing: .19em;
             text-transform: uppercase;
@@ -224,15 +241,15 @@
         }
 
         /* ===== HERO ===== */
-        .hero {
+        header.hero {
             padding-top: 64px;
-            padding-bottom: 24px;
+            padding-bottom: 32px;
         }
 
         @media (min-width:760px) {
-            .hero {
+            header.hero {
                 padding-top: 110px;
-                padding-bottom: 40px;
+                padding-bottom: 56px;
             }
         }
 
@@ -417,33 +434,54 @@
             margin: 0 0 22px;
         }
 
-        .checks {
+        .points {
             list-style: none;
             padding: 0;
-            margin: 24px 0 0;
-            display: grid;
-            gap: 13px;
+            margin: 30px 0 0;
+            counter-reset: pt;
         }
 
-        .checks li {
-            display: flex;
-            gap: 12px;
-            align-items: flex-start;
-            color: #cde0e4;
-            font-size: .975rem;
-            line-height: 1.55;
+        .points li {
+            counter-increment: pt;
+            padding: 26px 0;
+            border-top: 1px solid var(--stroke-soft);
         }
 
-        .checks li::before {
-            content: '';
-            flex: none;
-            width: 7px;
-            height: 7px;
-            margin-top: 10px;
-            border-radius: 2px;
-            background: var(--accent);
-            transform: rotate(45deg);
-            box-shadow: 0 0 12px rgba(94, 234, 212, .75);
+        .points li:first-child {
+            border-top: none;
+            padding-top: 4px;
+        }
+
+        .points li:last-child {
+            padding-bottom: 4px;
+        }
+
+        .points li::before {
+            content: counter(pt, decimal-leading-zero);
+            display: block;
+            font-family: 'Sora', sans-serif;
+            font-size: .76rem;
+            font-weight: 600;
+            letter-spacing: .16em;
+            color: var(--accent);
+            margin-bottom: 11px;
+        }
+
+        .points h3 {
+            font-size: clamp(1.06rem, 2.3vw, 1.26rem);
+            color: #fff;
+            font-weight: 600;
+            letter-spacing: -.02em;
+            line-height: 1.3;
+            margin: 0 0 9px;
+        }
+
+        .points p {
+            font-size: .95rem;
+            color: #b9d0d6;
+            line-height: 1.62;
+            margin: 0;
+            max-width: 72ch;
         }
 
         /* ===== Cases ===== */
@@ -468,7 +506,7 @@
 
         .case .tag {
             font-family: 'Sora', sans-serif;
-            font-size: .68rem;
+            font-size: .74rem;
             font-weight: 600;
             letter-spacing: .15em;
             text-transform: uppercase;
@@ -506,6 +544,17 @@
 
         .case p+p {
             margin-top: 10px;
+        }
+
+        .case code {
+            font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+            font-size: .875em;
+            color: #d6f5ef;
+            background: rgba(94, 234, 212, .1);
+            border: 1px solid rgba(94, 234, 212, .18);
+            border-radius: 6px;
+            padding: 1px 6px;
+            overflow-wrap: anywhere;
         }
 
         .case .how {
@@ -750,15 +799,15 @@
             justify-content: center;
         }
 
-        footer {
-            padding: 36px 0 54px;
+        footer.shell {
+            padding: 56px 16px 64px;
             text-align: center;
             font-size: .83rem;
             color: var(--dim);
             line-height: 1.7;
         }
 
-        footer a {
+        footer.shell a {
             color: var(--muted);
             text-decoration: none;
         }
@@ -811,7 +860,7 @@
     <!-- ================= HERO ================= -->
     <header class="hero shell">
         <div class="hero-top rv">
-            <div class="mark" aria-hidden="true">JU</div>
+            <div class="mark" aria-hidden="true">U</div>
             <div class="who">
                 <b>Julio Cesar Urnau de Almeida</b><br />
                 São Paulo · SP · presencial, híbrido ou remoto
@@ -819,13 +868,14 @@
         </div>
 
         <h1 class="rv">Engenheiro de<br />Software Sênior</h1>
-        <p class="title-sub rv">Tech Lead <span>·</span> Arquitetura <span>·</span> Code Review <span>·</span> IA
-            aplicada</p>
+        <p class="title-sub rv">Tech Lead <span>·</span> Arquitetura <span>·</span> Integração de marketplaces
+            <span>·</span> IA aplicada</p>
 
-        <p class="lead rv">Há <strong>10 anos</strong> eu construo, escalo e seguro de pé um SaaS multitenant de
-            e-commerce: <strong>500+ empresas ativas</strong>, cerca de <strong>30 mil pedidos por dia</strong> e mais
-            de <strong>20 repositórios</strong> em produção. Backend em PHP e Go, PostgreSQL afinado na unha,
-            infraestrutura em Docker Swarm e AWS, e a responsabilidade pelo que quebra às duas da manhã.</p>
+        <p class="lead rv">Há <strong>10 anos</strong> eu planejo, construo, escalo e mantenho no ar um SaaS
+            multitenant de e-commerce: <strong>500+ empresas ativas</strong>, <strong>50 mil pedidos por dia</strong>
+            e mais de <strong>30 repositórios</strong> em produção. Backend em PHP, Go, Node e Python, PostgreSQL
+            otimizado query a query, infraestrutura em Docker Swarm e AWS, e a responsabilidade por qualquer problema ou
+            indisponibilidade, 24 horas por dia, 7 dias por semana.</p>
 
         <ul class="chips rv">
             <li class="chip">PHP 8 · Laravel</li>
@@ -857,7 +907,7 @@
         <div class="metrics">
             <div class="metric glass rv"><span class="n">10 anos</span><span class="l">à frente da engenharia de um
                     SaaS em produção</span></div>
-            <div class="metric glass rv"><span class="n">~30 mil</span><span class="l">pedidos processados por
+            <div class="metric glass rv"><span class="n">50 mil</span><span class="l">pedidos processados por
                     dia</span></div>
             <div class="metric glass rv"><span class="n">500+</span><span class="l">empresas ativas na
                     plataforma</span></div>
@@ -869,32 +919,49 @@
     <!-- ================= OBJEÇÃO ================= -->
     <section class="shell">
         <p class="eyebrow rv">O elefante na sala</p>
-        <h2 class="rv">Meu cargo diz CTO.<br />Meu dia diz outra coisa.</h2>
+        <h2 class="rv">O cargo era de CTO.<br />O trabalho era engenharia e execução.</h2>
 
         <div class="objection glass rv" style="margin-top:38px">
-            <p class="pull">“CTO de empresa enxuta não é crachá de reunião. Foram 10 anos de mão no código todos os
-                dias, com a conta do servidor no meu nome.”</p>
+            <p class="pull">“CTO de empresa em crescimento não é sinônimo de gravata e reunião a toda hora. Foram 10 anos com a mão no código
+                todos os dias, a conta do servidor no meu nome e um time inteiro comigo atrás do mesmo sonho.”</p>
 
             <p>Quando alguém lê “CTO” em um currículo para uma vaga de desenvolvedor sênior, é natural supor que
                 seja um profissional afastado do código no dia a dia, ou que esteja de olho em um cargo de liderança.
                 No meu caso não é isso, e prefiro esclarecer logo no início da conversa.</p>
 
-            <ul class="checks">
-                <li><strong>Eu escrevo código todos os dias.</strong> Para dar exemplos dos últimos meses: otimização
-                    de queries em PostgreSQL, uma API pública em Go, a resposta a uma atualização crítica de segurança
-                    do PHP e a correção de uma falha de kernel que afetava containers em produção.</li>
-                <li><strong>Meu tempo de adaptação costuma ser curto.</strong> Acumulei ao mesmo tempo os papéis de
-                    arquiteto, desenvolvedor sênior, DevOps, revisor e plantão de produção. Estou acostumado a
-                    entender um sistema por inteiro e começar a contribuir cedo.</li>
-                <li><strong>Não estou em busca de um cargo de liderança.</strong> Se o time precisar de alguém para
-                    conduzir uma frente técnica, eu conduzo com prazer. Se não precisar, contribuo como mais um
-                    engenheiro do time, e isso está perfeitamente bem para mim.</li>
-                <li><strong>Já estive do outro lado da mesa.</strong> Conduzi entrevistas técnicas por uma década e
-                    participei da contratação de mais de 30 profissionais. Isso me ajuda a entender o que você
-                    precisa avaliar nesta conversa e a ser objetivo sobre o que eu entrego.</li>
-                <li><strong>Minha senioridade foi construída sob pressão real</strong>, com sistema em produção,
-                    cliente aguardando do outro lado e impacto direto no negócio.</li>
-            </ul>
+            <ol class="points">
+                <li>
+                    <h3>Eu escrevo código todos os dias</h3>
+                    <p>Para dar exemplos dos últimos meses: otimização de queries em PostgreSQL, uma API pública em
+                        Go, a resposta a uma atualização crítica de segurança do PHP e a correção de uma falha de
+                        kernel que afetava containers em produção.</p>
+                </li>
+                <li>
+                    <h3>Meu tempo de adaptação costuma ser curto</h3>
+                    <p>Acumulei ao mesmo tempo os papéis de arquiteto, desenvolvedor sênior, DevOps, revisor e
+                        plantão de produção. Estou acostumado a entender um sistema por inteiro e começar a
+                        contribuir cedo.</p>
+                </li>
+                <li>
+                    <h3>Não estou em busca de um cargo de liderança</h3>
+                    <p>Se o time precisar de alguém para conduzir uma frente técnica, eu conduzo com prazer. Se não
+                        precisar, contribuo como mais um engenheiro do time, e isso está perfeitamente bem para
+                        mim.</p>
+                </li>
+                <li>
+                    <h3>Já estive do outro lado da mesa</h3>
+                    <p>Conduzi entrevistas técnicas por uma década e participei da contratação de mais de 30
+                        profissionais. Isso me ajuda a entender o que você precisa avaliar nesta conversa e a ser
+                        objetivo sobre o que eu entrego.</p>
+                </li>
+                <li>
+                    <h3>Minha senioridade foi construída sob pressão real</h3>
+                    <p>A operação cresceu sem nenhum investimento externo. Cada escolha de arquitetura, de cloud e de
+                        contratação saía do caixa gerado pela própria operação, com sistema em produção e cliente
+                        aguardando do outro lado. Aprendi a decidir considerando o custo, não só a elegância
+                        técnica.</p>
+                </li>
+            </ol>
         </div>
     </section>
 
@@ -917,6 +984,33 @@
                     <li>Diagnóstico no plano de execução antes de tocar em qualquer linha</li>
                     <li>Mudança de arquitetura da tela, não só de índice</li>
                     <li>Redução de ~82% no tempo de carregamento percebido</li>
+                </ul>
+            </article>
+
+            <article class="case glass rv">
+                <span class="tag">Performance · Arquitetura de dados</span>
+                <p class="impact">Uma funcionalidade parada por um ano, destravada com view materializada</p>
+                <p>Métricas prévias de vendas por SKU, em janelas de até um ano, ficaram cerca de um ano fora do
+                    roadmap. Calcular aquilo no momento da pergunta era caro demais: o volume de vendas tornava a
+                    agregação pesada, e cache sozinho não resolvia, porque cada combinação de SKU e período vira uma
+                    chave diferente e alguém sempre pagaria a conta inteira na primeira consulta.</p>
+                <p>A saída foi deixar de calcular sob demanda. Montei uma view materializada que pré-agrega os
+                    dados e as métricas de vendas de vários períodos de uma vez, com refresh assíncrono a cada 8
+                    horas, fora do caminho da requisição do usuário. A atualização roda com <code>REFRESH
+                        MATERIALIZED VIEW CONCURRENTLY</code>, então ninguém fica sem resposta enquanto ela
+                    acontece, e o job só processa usuários ativos: quem não está usando não consome CPU nem disco.
+                </p>
+                <p>O refresh leva <strong>menos de 3 segundos</strong> mesmo nos casos extremos, com mais de 100 mil
+                    vendas registradas, e apenas alguns milissegundos para a maioria dos clientes. Para quem usa, a
+                    consulta virou leitura direta, e a funcionalidade que estava engavetada há um ano entrou em
+                    produção.</p>
+                <ul class="how">
+                    <li>Agregação pré-calculada no lugar de cálculo sob demanda</li>
+                    <li>Atualização assíncrona a cada 8 horas, fora do ciclo de requisição</li>
+                    <li>Refresh concorrente, sem bloquear a leitura de quem está usando o sistema</li>
+                    <li>Job agendado apenas para usuários ativos, para não gastar recurso com base inativa</li>
+                    <li>Custo previsível: o pior cliente da base define o teto, e o teto é de 3 segundos</li>
+                    <li>Decisão de arquitetura de dados viabilizando uma decisão de produto</li>
                 </ul>
             </article>
 
@@ -1038,6 +1132,24 @@
             </article>
 
             <article class="case glass rv">
+                <span class="tag">Comunidade e ensino</span>
+                <p class="impact">8 mil inscritos e um vídeo com mais de 60 mil visualizações</p>
+                <p>Durante cerca de dois anos mantive o canal Dev Tech Tips com publicação regular, sem falhar.
+                    O conteúdo era sobre a rotina real de quem desenvolve software: estratégias do dia a dia,
+                    decisões técnicas e o que eu mesmo ia aprendendo na jornada. O canal passou de 8 mil inscritos e
+                    um dos vídeos ultrapassou 60 mil visualizações.</p>
+                <p>Ensinar me devolveu mais do que consumiu. Explicar arquitetura, banco de dados e infraestrutura
+                    para quem está começando me obrigou a entender esses assuntos com muito mais profundidade e
+                    afiou minha didática, que é exatamente o que eu uso hoje em code review, no treinamento de novos
+                    desenvolvedores e na conversa com áreas não técnicas.</p>
+                <ul class="how">
+                    <li>Regularidade de publicação sustentada por cerca de 2 anos, em paralelo à operação</li>
+                    <li>Conteúdo sobre prática profissional, não apenas tutorial de ferramenta</li>
+                    <li>Comunicação técnica treinada na prática, com retorno direto de milhares de pessoas</li>
+                </ul>
+            </article>
+
+            <article class="case glass rv">
                 <span class="tag">FinOps</span>
                 <p class="impact">−30% no custo global de infraestrutura</p>
                 <p>Redução de mais de 30% no custo total de cloud através de isolamento de servidores e containers, e
@@ -1046,11 +1158,24 @@
             </article>
 
             <article class="case glass rv">
-                <span class="tag">Entrega contínua</span>
-                <p class="impact">8+ marketplaces e plataformas integrados</p>
-                <p>Mercado Livre, Shopee, Amazon, Magalu, TikTok Shop, Nuvemshop, Shopify, além de ERPs, TMS e meios
-                    de pagamento (Pix, Asaas, Cobre Fácil, Hotmart). Cada um com seu contrato, seu rate limit e sua
-                    mudança sem aviso, todos mantidos funcionando em produção, em paralelo, por anos.</p>
+                <span class="tag warm">Especialidade</span>
+                <p class="impact">Integração de marketplaces: mais de 8 plataformas estudadas, viabilizadas e
+                    integradas</p>
+                <p>Essa é a minha especialidade mais afiada. Mercado Livre, Shopee, Amazon, Magalu, TikTok Shop,
+                    Nuvemshop, Loja Integrada e Shopify, além de ERPs, TMS e meios de pagamento como Pix, Asaas,
+                    Cobre Fácil e Hotmart.</p>
+                <p>Cada plataforma é um projeto inteiro, não um endpoint: documentação própria e muitas vezes
+                    incompleta, modelo de dados próprio, autenticação própria, limite de requisição próprio, regra
+                    fiscal própria e mudanças publicadas sem aviso. O trabalho começa antes do código, estudando a
+                    API para descobrir o que ela realmente entrega, o que ela não entrega e se vale o investimento.
+                    Depois vem a parte que poucos veem: manter tudo isso funcionando em produção, em paralelo, por
+                    anos.</p>
+                <ul class="how">
+                    <li>Estudo da documentação e análise de viabilidade antes de comprometer o roadmap</li>
+                    <li>Um ciclo de vida próprio por integração, com repositório e deploy independentes</li>
+                    <li>Convivência de contratos, limites e formatos distintos sobre uma base de dados única</li>
+                    <li>Resposta rápida a mudança não anunciada, como no caso de 1h30 descrito acima</li>
+                </ul>
             </article>
 
         </div>
@@ -1060,8 +1185,9 @@
     <section class="shell">
         <p class="eyebrow rv">Time</p>
         <h2 class="rv">Eu também formo gente</h2>
-        <p class="lead rv">Isso não compete com a mão no código, pelo contrário: complementa. Um time que cresce é o que permite que
-            o sênior pare de ser gargalo.</p>
+        <p class="lead rv">Isso não compete com a mão no código, pelo contrário: complementa. Um time que cresce é
+            o que permite que o sênior pare de ser gargalo. Fiz isso dentro da empresa, com quem contratei, e fora
+            dela, com mais de 8 mil pessoas que acompanharam meu canal.</p>
 
         <div class="split" style="margin-top:42px">
             <div class="panel glass rv">
@@ -1271,7 +1397,7 @@
                 <span class="yr">2022 a 2024</span>
                 <span class="what"><b>Produtor de conteúdo técnico, Dev Tech Tips</b><span>Canal no YouTube sobre
                         arquitetura de software, DevOps, Go, PHP e boas práticas, para desenvolvedores e para quem
-                        quer entrar na área.</span></span>
+                        quer entrar na área. Mais de 8 mil inscritos.</span></span>
             </li>
             <li>
                 <span class="yr">2016 a 2017</span>
@@ -1298,7 +1424,7 @@
     <!-- ================= FORMAÇÃO ================= -->
     <section class="shell">
         <p class="eyebrow rv">Formação</p>
-        <h2 class="rv">Estudo não parou em 2017</h2>
+        <h2 class="rv">Quatro formações depois de virar CTO</h2>
 
         <div class="edu">
             <div class="rv"><b>MBA em Engenharia de Software com IA</b><span>Full Cycle · 2025 a 2026 (em
