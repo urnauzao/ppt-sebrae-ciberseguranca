@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Currículo | Julio Cesar Urnau de Almeida</title>
+    <meta name="description"
+        content="Currículo de Julio Cesar Urnau de Almeida, engenheiro de software sênior e tech lead, com 10 anos construindo e sustentando um SaaS multitenant de e-commerce." />
+    <meta name="author" content="Julio Cesar Urnau de Almeida" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://urnau.com.br/curriculo/" />
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%23061419'/><text y='68' x='50' text-anchor='middle' font-size='54' font-family='sans-serif' font-weight='700' fill='%235eead4'>U</text></svg>" />
+
+    <style>
+        /* ============================================================
+           Currículo imprimível. Uma coluna, texto selecionável e
+           estrutura simples de propósito, porque leitor automático de
+           currículo (ATS) se perde em layout de duas colunas.
+           ============================================================ */
+
+        :root {
+            --tinta: #15242b;
+            --tinta-suave: #4a5f68;
+            --destaque: #0f6b7a;
+            --linha: #d4dde0;
+            --fundo-bloco: #f4f7f8;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            -webkit-text-size-adjust: 100%;
+        }
+
+        body {
+            margin: 0;
+            background: #e8edef;
+            color: var(--tinta);
+            font-family: 'Segoe UI', 'Helvetica Neue', Arial, 'Liberation Sans', sans-serif;
+            font-size: 9.9pt;
+            line-height: 1.4;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .folha {
+            max-width: 210mm;
+            margin: 24px auto;
+            padding: 16mm 15mm;
+            background: #fff;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, .14);
+        }
+
+        a {
+            color: var(--destaque);
+            text-decoration: none;
+        }
+
+        /* ===== Cabeçalho ===== */
+        header {
+            border-bottom: 2.5px solid var(--destaque);
+            padding-bottom: 9px;
+            margin-bottom: 12px;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 20pt;
+            line-height: 1.15;
+            letter-spacing: -.015em;
+        }
+
+        .cargo {
+            margin: 4px 0 9px;
+            font-size: 12pt;
+            font-weight: 600;
+            color: var(--destaque);
+        }
+
+        .contato {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 4px 14px;
+            font-size: 9.6pt;
+            color: var(--tinta-suave);
+        }
+
+        .contato span::before {
+            content: '';
+        }
+
+        /* ===== Seções ===== */
+        section {
+            margin-top: 10px;
+        }
+
+        h2 {
+            margin: 0 0 6px;
+            font-size: 9.6pt;
+            letter-spacing: .13em;
+            text-transform: uppercase;
+            color: var(--destaque);
+            border-bottom: 1px solid var(--linha);
+            padding-bottom: 4px;
+        }
+
+        h3 {
+            margin: 0;
+            font-size: 11pt;
+            line-height: 1.3;
+        }
+
+        .resumo p {
+            margin: 0 0 7px;
+            text-align: justify;
+        }
+
+        .resumo p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* ===== Experiência ===== */
+        .cargo-bloco {
+            margin-bottom: 9px;
+            break-inside: avoid;
+        }
+
+        .cargo-bloco:last-child {
+            margin-bottom: 0;
+        }
+
+        .cargo-topo {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            gap: 14px;
+        }
+
+        .empresa {
+            font-size: 10pt;
+            font-weight: 600;
+            color: var(--tinta-suave);
+            margin: 1px 0 5px;
+        }
+
+        .periodo {
+            flex: none;
+            font-size: 9.4pt;
+            font-weight: 600;
+            color: var(--tinta-suave);
+            white-space: nowrap;
+        }
+
+        ul {
+            margin: 0;
+            padding-left: 17px;
+        }
+
+        li {
+            margin-bottom: 2px;
+        }
+
+        li:last-child {
+            margin-bottom: 0;
+        }
+
+        li strong {
+            font-weight: 600;
+        }
+
+        .intro-cargo {
+            margin: 0 0 6px;
+        }
+
+        /* ===== Blocos de competência ===== */
+        .skills {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5px 16px;
+        }
+
+        .skill-linha {
+            break-inside: avoid;
+        }
+
+        .skill-linha b {
+            display: block;
+            font-size: 9.4pt;
+            letter-spacing: .04em;
+            text-transform: uppercase;
+            color: var(--tinta-suave);
+            margin-bottom: 1px;
+        }
+
+        .skill-linha span {
+            font-size: 10pt;
+        }
+
+        .nota-stack {
+            margin: 7px 0 0;
+            padding: 6px 9px;
+            background: var(--fundo-bloco);
+            border-left: 2.5px solid var(--linha);
+            font-size: 9.6pt;
+            color: var(--tinta-suave);
+        }
+
+        /* ===== Formação, idiomas ===== */
+        .form-item {
+            margin-bottom: 3px;
+            break-inside: avoid;
+        }
+
+        .form-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .form-item b {
+            font-weight: 600;
+        }
+
+        .form-item span {
+            font-size: 9.7pt;
+            color: var(--tinta-suave);
+        }
+
+        .idiomas {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+        }
+
+        .idiomas div {
+            break-inside: avoid;
+        }
+
+        .idiomas b {
+            display: block;
+            font-size: 10.4pt;
+        }
+
+        .idiomas span {
+            font-size: 9.6pt;
+            color: var(--tinta-suave);
+        }
+
+        /* ===== Barra de ações, fora da impressão ===== */
+        .acoes {
+            max-width: 210mm;
+            margin: 24px auto -12px;
+            padding: 0 2px;
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .acoes a,
+        .acoes button {
+            font: inherit;
+            font-size: 9.8pt;
+            font-weight: 600;
+            padding: 8px 15px;
+            border-radius: 9px;
+            border: 1px solid var(--linha);
+            background: #fff;
+            color: var(--destaque);
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .acoes a:hover,
+        .acoes button:hover {
+            border-color: var(--destaque);
+        }
+
+        /* ===== Impressão e PDF ===== */
+        @page {
+            size: A4;
+            margin: 12mm 13mm;
+        }
+
+        @media print {
+
+            html,
+            body {
+                background: #fff;
+            }
+
+            .acoes {
+                display: none;
+            }
+
+            .folha {
+                max-width: none;
+                margin: 0;
+                padding: 0;
+                box-shadow: none;
+            }
+
+            a {
+                color: var(--tinta);
+            }
+
+            section,
+            header {
+                break-inside: auto;
+            }
+
+            h2 {
+                break-after: avoid;
+            }
+        }
+
+        @media (max-width:640px) {
+            body {
+                font-size: 11pt;
+            }
+
+            .folha {
+                margin: 0;
+                padding: 18px 16px;
+            }
+
+            .skills,
+            .idiomas {
+                grid-template-columns: 1fr;
+            }
+
+            .cargo-topo {
+                display: block;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="acoes">
+        <a href="curriculo-julio-cesar-urnau-de-almeida.pdf" download>Baixar em PDF</a>
+        <button type="button" onclick="window.print()">Imprimir ou salvar como PDF</button>
+        <a href="https://urnau.com.br/perfil/">Ver o perfil completo</a>
+    </div>
+
+    <div class="folha">
+
+        <header>
+            <h1>Julio Cesar Urnau de Almeida</h1>
+            <p class="cargo">Engenheiro de Software Sênior · Tech Lead · Arquiteto de Software</p>
+            <div class="contato">
+                <span>São Paulo, SP, Brasil</span>
+                <span>Presencial, híbrido ou remoto</span>
+                <span><a href="mailto:julio.cesar.08.08.93@gmail.com">julio.cesar.08.08.93@gmail.com</a></span>
+                <span><a href="https://urnau.com.br/perfil/">urnau.com.br/perfil</a></span>
+                <span><a href="https://www.linkedin.com/in/urnau/">linkedin.com/in/urnau</a></span>
+                <span><a href="https://github.com/urnauzao">github.com/urnauzao</a></span>
+            </div>
+        </header>
+
+        <section class="resumo">
+            <h2>Resumo</h2>
+            <p>Há 10 anos planejo, construo, escalo e mantenho no ar um SaaS multitenant de e-commerce, hoje com mais
+                de 500 empresas ativas, 50 mil pedidos por dia e mais de 30 repositórios em produção. O cargo é de
+                CTO, o trabalho sempre foi engenharia e execução: escrevo código todos os dias e respondo pela
+                plataforma 24 horas por dia, 7 dias por semana.</p>
+            <p>Atuo de ponta a ponta, da modelagem de dados e da arquitetura até a infraestrutura, a segurança e o
+                custo, como engenheiro de software sênior, tech lead, arquiteto ou engenheiro de IA. Disponível
+                para contratação CLT ou como pessoa jurídica, pela Urnau Tecnologia, CNPJ 36.403.727/0001-67.</p>
+        </section>
+
+        <section>
+            <h2>Experiência profissional</h2>
+
+            <div class="cargo-bloco">
+                <div class="cargo-topo">
+                    <h3>CTO e Engenheiro de Software Principal</h3>
+                    <span class="periodo">2017 a hoje</span>
+                </div>
+                <p class="empresa">LojaHub · plataforma SaaS de e-commerce e integração de marketplaces · sócio</p>
+                <p class="intro-cargo">Responsável por toda a engenharia da plataforma: arquitetura,
+                    desenvolvimento, infraestrutura multi-cloud, segurança, custos e times de até 12 pessoas.</p>
+                <ul>
+                    <li><strong>Performance e eficiência:</strong> relatório de métricas reduzido de 17 para menos
+                        de 3 segundos com view materializada e refresh agendado; serviço crítico migrado de PHP para
+                        Go, com queda de cerca de 90% no consumo de recursos; custo de infraestrutura reduzido em
+                        cerca de 30% sem perda de desempenho.</li>
+                    <li><strong>Produto:</strong> API pública entregue em 45 dias, com versionamento, webhooks,
+                        cotas e OpenAPI; extensão de navegador cuja receita superou em mais de 6 vezes o custo de
+                        desenvolvimento.</li>
+                    <li><strong>IA aplicada:</strong> 8 integrações e mais de 20 skills em produção com tool calling
+                        sobre dados reais, servidores MCP, RAG com pgvector, isolamento de tenant na aplicação,
+                        guardrails e monitoramento de prompt, ação e retorno.</li>
+                    <li><strong>Confiabilidade:</strong> atualização crítica de segurança do PHP aplicada a mais de
+                        20 repositórios em 8 horas, correção de falha de kernel que afetava containers em produção e
+                        integração de marketplace restabelecida em menos de 1 hora e 30 minutos, com comunicação
+                        ativa aos usuários.</li>
+                    <li><strong>Segurança e privacidade:</strong> hardening de Linux, gestão de segredos, auditoria
+                        de dependências e imagens no build, análise estática com gosec, govulncheck e Trivy, RBAC,
+                        backup e DR. Exposição de dados em sistema legado tratada em menos de 24 horas, da contenção
+                        à notificação da ANPD.</li>
+                    <li><strong>Qualidade:</strong> testes unitários, de integração, E2E, de regressão, de
+                        arquitetura, de carga e de contrato, com gate no CI, feature flags, testes A/B e code
+                        review.</li>
+                    <li><strong>Integrações e gestão:</strong> especialista em marketplaces, de viabilidade a
+                        sustentação, além de NF-e e SEFAZ; conduzi a certificação do LojaHub no programa de
+                        integradores do Mercado Livre; orçamento, OKRs, fornecedores e mais de 30 profissionais
+                        contratados, treinados e promovidos.</li>
+                </ul>
+            </div>
+
+            <div class="cargo-bloco">
+                <div class="cargo-topo">
+                    <h3>Produtor de conteúdo técnico</h3>
+                    <span class="periodo">2022 a 2024</span>
+                </div>
+                <p class="empresa">Dev Tech Tips · canal no YouTube</p>
+                <p class="intro-cargo">Conteúdo sobre arquitetura de software, DevOps, Go, PHP e boas práticas. Mais
+                    de 8 mil inscritos e um vídeo com mais de 60 mil visualizações. Palestrante no EcomSummit, em
+                    plenária com 300 pessoas presentes, e em palestra sobre cibersegurança para o SEBRAE.</p>
+            </div>
+
+            <div class="cargo-bloco">
+                <div class="cargo-topo">
+                    <h3>Arte-finalista</h3>
+                    <span class="periodo">2016 a 2017</span>
+                </div>
+                <p class="empresa">Estatex</p>
+                <p class="intro-cargo">Vetorização, artes para serigrafia e atendimento direto a clientes.</p>
+            </div>
+
+            <div class="cargo-bloco">
+                <div class="cargo-topo">
+                    <h3>Soldado e Cabo</h3>
+                    <span class="periodo">2012 a 2016</span>
+                </div>
+                <p class="empresa">Exército Brasileiro</p>
+                <p class="intro-cargo">Setor de operações administrativas.</p>
+            </div>
+
+            <div class="cargo-bloco">
+                <div class="cargo-topo">
+                    <h3>Técnico em manutenção de computadores</h3>
+                    <span class="periodo">2010 a 2012</span>
+                </div>
+                <p class="empresa">Prefeitura de Foz do Iguaçu</p>
+                <p class="intro-cargo">Em 2 anos fiz manutenção em mais de 2.000 computadores, com atendimento
+                    presencial em todas as instalações e participação pioneira na implantação da central de
+                    atendimento remota.</p>
+            </div>
+        </section>
+
+        <section>
+            <h2>Projeto próprio</h2>
+            <div class="cargo-bloco">
+                <div class="cargo-topo">
+                    <h3>AgenxIa · SaaS multiagente para operação de marketplace</h3>
+                    <span class="periodo">arquitetura</span>
+                </div>
+                <p class="intro-cargo">SaaS multitenant em que o vendedor configura agentes de IA com papéis
+                    especializados, como gerente, criador de anúncios, especialista em SAC, especialista em ADS e
+                    gestor de estoque, para cuidar das contas de marketplace e da operação. Arquitetura desenhada por
+                    completo, com orquestração avaliada em CrewAI, custo por tenant, isolamento na camada da
+                    aplicação e guardrails com supervisão humana nas ações que alteram anúncio, preço e estoque.
+                    Ainda não desenvolvido.</p>
+            </div>
+        </section>
+
+        <section>
+            <h2>Competências técnicas</h2>
+            <div class="skills">
+                <div class="skill-linha"><b>Linguagens e frameworks</b><span>PHP 8 e Laravel, Go, Node.js, Python e
+                        FastAPI, JavaScript, React, PWA</span></div>
+                <div class="skill-linha"><b>Arquitetura</b><span>Multitenancy, microsserviços, APIs REST
+                        versionadas, DDD, Clean Architecture, arquitetura hexagonal, SOLID, RabbitMQ, API Gateway,
+                        MCP</span></div>
+                <div class="skill-linha"><b>Dados, performance e observabilidade</b><span>PostgreSQL, SQL tuning,
+                        plano de execução, pgvector, MySQL, MariaDB, MongoDB, Redis, Valkey, OpenTelemetry, Jaeger,
+                        CloudWatch, tracing distribuído, logs e métricas</span></div>
+                <div class="skill-linha"><b>Infraestrutura e DevOps</b><span>Docker, Docker Swarm, Podman, Traefik,
+                        Nginx, Caddy, AWS (EC2, ECS, ECR, RDS, ElastiCache, S3, Secrets Manager, Lightsail), Magalu
+                        Cloud, Supabase, Vercel, Hostinger, Debian, CentOS, Bitbucket Pipelines, CI/CD</span></div>
+                <div class="skill-linha"><b>Segurança e privacidade</b><span>Hardening Linux, Lynis, Fail2ban,
+                        detecção de rootkit, SAST com gosec e govulncheck, Trivy, RBAC, resposta a incidentes,
+                        backup e DR, LGPD e ANPD. Uso pontual de OWASP ZAP, Greenbone e Burp Suite</span></div>
+                <div class="skill-linha"><b>Testes e qualidade</b><span>Unitários, integração, E2E, regressão,
+                        arquitetura, carga e contrato, Schemathesis, linters e análise estática, gate no CI, feature
+                        flags, testes A/B, code review</span></div>
+                <div class="skill-linha"><b>IA aplicada</b><span>Servidores MCP, tool calling, agentes e skills, RAG
+                        com pgvector, guardrails, spec driven development, Prism (PHP), Claude Code</span></div>
+                <div class="skill-linha"><b>Gestão e domínio de negócio</b><span>Orçamento, OKRs, fornecedores,
+                        contratação e desenvolvimento de time, Jira e Zoho, FinOps, e-commerce, integração de
+                        marketplaces, NF-e e SEFAZ</span></div>
+            </div>
+            <p class="nota-stack">Estudado em laboratório e ainda não aplicado em produção: Kubernetes, cuja adoção
+                foi avaliada e descartada porque o Docker Swarm atendia ao requisito sem a complexidade adicional, e
+                CrewAI, avaliado no desenho do AgenxIa.</p>
+        </section>
+
+        <section>
+            <h2>Formação acadêmica</h2>
+            <div class="form-item"><b>MBA em Engenharia de Software com IA</b> <span>· Full Cycle · 2025 a 2026,
+                    em andamento</span></div>
+            <div class="form-item"><b>Pós-graduação em Privacidade e Proteção de Dados Pessoais (LGPD)</b>
+                <span>· Faculdade Descomplica · 2023 a 2024</span>
+            </div>
+            <div class="form-item"><b>MBA em Engenharia de Software</b> <span>· FIAP · 2021 a 2022</span></div>
+            <div class="form-item"><b>Tecnólogo em Desenvolvimento de Sistemas</b> <span>· FIAP · 2019 a
+                    2020</span></div>
+            <div class="form-item"><b>Tecnólogo em Análise e Desenvolvimento de Sistemas</b> <span>· IFPR · 2015 a
+                    2018</span></div>
+        </section>
+
+        <section>
+            <h2>Certificações</h2>
+            <p class="intro-cargo">22 certificações, entre elas Docker, Kubernetes, DDD, Clean Architecture,
+                arquitetura hexagonal, RabbitMQ, API Gateway com Kong, CI/CD e SOLID, pela Full Cycle, AWS EC2 e
+                Lightsail pela Alura, além de certificações da FIAP.</p>
+        </section>
+
+        <section>
+            <h2>Idiomas</h2>
+            <div class="idiomas">
+                <div><b>Português</b><span>Nativo</span></div>
+                <div><b>Espanhol</b><span>Avançado. Cresci em Foz do Iguaçu, na fronteira com Paraguai e
+                        Argentina.</span></div>
+                <div><b>Inglês</b><span>Leitura técnica fluente, uso diário em documentação e código. Limitação na
+                        conversação.</span></div>
+            </div>
+        </section>
+    </div>
+</body>
+
+</html>
