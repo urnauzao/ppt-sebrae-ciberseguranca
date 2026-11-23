@@ -1969,8 +1969,22 @@
            marca de sessão, e a notificação só sai quando há interação real
            e permanência mínima na página. */
         (function () {
-            if (navigator.doNotTrack === '1' || window.doNotTrack === '1') return;
-            try { if (sessionStorage.getItem('visita-avisada')) return; } catch (e) { }
+            // Diagnóstico: abrir a página com ?debug=visita mostra no console
+            // o que está sendo medido e qual foi a resposta do servidor.
+            var depura = /[?&]debug=visita/.test(location.search);
+            function log() { if (depura) console.log.apply(console, ['[visita]'].concat([].slice.call(arguments))); }
+
+            if (navigator.doNotTrack === '1' || window.doNotTrack === '1') {
+                log('cancelado: o navegador pede para não ser rastreado (Do Not Track)');
+                return;
+            }
+            try {
+                if (sessionStorage.getItem('visita-avisada') && !depura) {
+                    log('cancelado: esta sessão já foi avisada');
+                    return;
+                }
+            } catch (e) { }
+            log('medindo. precisa de 2 sinais de interação e 8 segundos de página visível');
 
             var sinais = 0, marcados = {}, inicio = Date.now(), visivel = 0;
             var ultimoTique = Date.now(), rolagemMax = 0, tempoSecao = {}, enviado = false;
@@ -2007,6 +2021,8 @@
                     tempoSecao[nome] = (tempoSecao[nome] || 0) + 1;
                 }
                 ultimoTique = agora;
+                log('segundos visíveis: ' + Math.round(visivel) + ' | sinais: ' + sinais +
+                    ' (' + (Object.keys(marcados).join(', ') || 'nenhum ainda') + ')');
                 if (!enviado && visivel >= 8 && sinais >= 2) avisar();
             }, 1000);
 
@@ -2031,16 +2047,25 @@
                     campanha: q.get('utm_source') || q.get('utm_campaign') || q.get('origem') || null
                 };
                 var corpo = JSON.stringify(dados);
-                try {
-                    if (navigator.sendBeacon) {
-                        navigator.sendBeacon('/api/visita', new Blob([corpo], { type: 'application/json' }));
-                        return;
-                    }
-                } catch (e) { }
+                log('enviando', dados);
+                // Em diagnóstico usa fetch, que devolve o status da resposta.
+                if (!depura) {
+                    try {
+                        if (navigator.sendBeacon) {
+                            navigator.sendBeacon('/api/visita', new Blob([corpo], { type: 'application/json' }));
+                            return;
+                        }
+                    } catch (e) { }
+                }
                 fetch('/api/visita', {
                     method: 'POST', headers: { 'content-type': 'application/json' },
                     body: corpo, keepalive: true
-                }).catch(function () { });
+                }).then(function (r) {
+                    if (r.status === 204) log('ok: o servidor aceitou e notificou, ou já havia notificado hoje');
+                    else if (r.status === 503) log('o webhook não está configurado na Vercel (DISCORD_WEBHOOK_VISITAS)');
+                    else if (r.status === 502) log('o servidor tentou avisar o Discord e falhou');
+                    else log('resposta inesperada: ' + r.status);
+                }).catch(function (e) { log('falha de rede:', e.message); });
             }
         })();
     </script>

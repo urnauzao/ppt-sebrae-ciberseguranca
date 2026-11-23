@@ -116,7 +116,6 @@ module.exports = async (req, res) => {
     limpar();
     const id = identificadorDiario(req);
     if (vistos.has(id)) return res.status(204).end();
-    vistos.set(id, Date.now());
 
     if (!WEBHOOK) {
         return res.status(503).json({ erro: 'Webhook não configurado' });
@@ -158,11 +157,14 @@ module.exports = async (req, res) => {
             headers: { 'content-type': 'application/json' },
             body: JSON.stringify(payload)
         });
-        contador++;
         if (!resposta.ok) {
             console.error('Discord respondeu', resposta.status);
             return res.status(502).json({ erro: 'Falha ao notificar' });
         }
+        // Só agora o visitante conta como avisado: se o envio falha, a
+        // próxima visita dele ainda gera notificação.
+        contador++;
+        vistos.set(id, Date.now());
     } catch (e) {
         console.error('Erro ao chamar o webhook:', e.message);
         return res.status(502).json({ erro: 'Falha ao notificar' });
