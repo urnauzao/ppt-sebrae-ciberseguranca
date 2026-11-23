@@ -790,6 +790,53 @@
             color: var(--muted);
         }
 
+        .idiomas {
+            list-style: none;
+            padding: 0;
+            margin: 34px 0 0;
+            display: grid;
+            gap: 2px;
+        }
+
+        .idiomas li {
+            display: grid;
+            grid-template-columns: 132px 1fr;
+            gap: 16px;
+            padding: 16px 0;
+            border-bottom: 1px solid var(--stroke-soft);
+            align-items: baseline;
+        }
+
+        @media (max-width:620px) {
+            .idiomas li {
+                grid-template-columns: 1fr;
+                gap: 4px;
+            }
+        }
+
+        .idiomas .lang {
+            font-family: 'Sora', sans-serif;
+            font-size: .95rem;
+            font-weight: 600;
+            color: #e6f2f4;
+        }
+
+        .idiomas .lang b {
+            display: block;
+            font-size: .76rem;
+            font-weight: 600;
+            letter-spacing: .13em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-top: 3px;
+        }
+
+        .idiomas .desc {
+            font-size: .915rem;
+            color: var(--muted);
+            line-height: 1.6;
+        }
+
         /* ===== Contato ===== */
         .contact {
             padding: 38px 24px;
@@ -856,6 +903,121 @@
             outline-offset: 3px;
             border-radius: 6px;
         }
+        /* ===== Navegação fixa ===== */
+        .topnav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 40;
+            display: none;
+            padding: 10px 16px;
+            background: rgba(6, 20, 25, .72);
+            backdrop-filter: blur(18px) saturate(140%);
+            -webkit-backdrop-filter: blur(18px) saturate(140%);
+            border-bottom: 1px solid var(--stroke-soft);
+        }
+
+        .topnav.show {
+            display: block;
+        }
+
+        .topnav .inner {
+            max-width: var(--maxw);
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            gap: 18px;
+        }
+
+        .topnav .brand {
+            font-family: 'Sora', sans-serif;
+            font-size: .88rem;
+            font-weight: 600;
+            color: var(--text);
+            text-decoration: none;
+            white-space: nowrap;
+            flex: none;
+        }
+
+        .topnav .brand span {
+            color: var(--dim);
+        }
+
+        .topnav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            flex: 1;
+            min-width: 0;
+            display: flex;
+            gap: 4px;
+            overflow-x: auto;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+
+        .topnav ul::-webkit-scrollbar {
+            display: none;
+        }
+
+        .topnav a.lnk {
+            display: block;
+            padding: 7px 12px;
+            border-radius: 10px;
+            font-family: 'Sora', sans-serif;
+            font-size: .83rem;
+            font-weight: 500;
+            color: var(--muted);
+            text-decoration: none;
+            white-space: nowrap;
+            border: 1px solid transparent;
+            transition: color .18s ease, background .18s ease, border-color .18s ease;
+        }
+
+        .topnav a.lnk:hover {
+            color: var(--text);
+            background: var(--glass);
+        }
+
+        .topnav a.lnk.active {
+            color: var(--accent);
+            background: var(--glass);
+            border-color: var(--stroke);
+        }
+
+        .topnav .cta {
+            margin-left: auto;
+            flex: none;
+            padding: 8px 15px;
+            border-radius: 11px;
+            font-family: 'Sora', sans-serif;
+            font-size: .83rem;
+            font-weight: 600;
+            text-decoration: none;
+            color: #04171c;
+            background: var(--accent);
+            white-space: nowrap;
+        }
+
+        section[id] {
+            scroll-margin-top: 92px;
+        }
+
+        @media (max-width:900px) {
+            .topnav .brand {
+                display: none;
+            }
+
+            .topnav .inner {
+                gap: 10px;
+            }
+
+            .topnav .cta {
+                padding: 8px 13px;
+                font-size: .79rem;
+            }
+        }
     </style>
 </head>
 
@@ -865,8 +1027,24 @@
         <div class="orb b"></div>
     </div>
 
+    <nav class="topnav" aria-label="Seções da página">
+        <div class="inner">
+            <a class="brand" href="#topo">Urnau <span>· perfil</span></a>
+            <ul>
+                <li><a class="lnk" href="#elefante">Elefante na sala</a></li>
+                <li><a class="lnk" href="#casos">Casos reais</a></li>
+                <li><a class="lnk" href="#time">Time</a></li>
+                <li><a class="lnk" href="#stack">Stack</a></li>
+                <li><a class="lnk" href="#formatos">Formatos</a></li>
+                <li><a class="lnk" href="#trajetoria">Trajetória</a></li>
+                <li><a class="lnk" href="#formacao">Formação</a></li>
+            </ul>
+            <a class="cta" href="#contato">Falar comigo</a>
+        </div>
+    </nav>
+
     <!-- ================= HERO ================= -->
-    <header class="hero shell">
+    <header class="hero shell" id="topo">
         <div class="hero-top rv">
             <picture class="avatar">
                 <source type="image/webp" srcset="urnau-256.webp 256w, urnau-512.webp 512w" sizes="92px" />
@@ -929,7 +1107,7 @@
     </header>
 
     <!-- ================= OBJEÇÃO ================= -->
-    <section class="shell">
+    <section class="shell" id="elefante">
         <p class="eyebrow rv">O elefante na sala</p>
         <h2 class="rv">O cargo era de CTO.<br />O trabalho era engenharia e execução.</h2>
 
@@ -955,7 +1133,7 @@
                         contribuir cedo.</p>
                 </li>
                 <li>
-                    <h3>Não estou em busca de um cargo de liderança</h3>
+                    <h3>Não disputo cargo, mas lidero se for preciso</h3>
                     <p>Se o time precisar de alguém para conduzir uma frente técnica, eu conduzo com prazer. Se não
                         precisar, contribuo como mais um engenheiro do time, e isso está perfeitamente bem para
                         mim.</p>
@@ -978,7 +1156,7 @@
     </section>
 
     <!-- ================= CASES ================= -->
-    <section class="shell">
+    <section class="shell" id="casos">
         <p class="eyebrow rv">Casos reais</p>
         <h2 class="rv">O que eu fiz acontecer</h2>
         <p class="lead rv">Cada um destes é um problema que chegou sem aviso, com sistema em produção e usuário do
@@ -1041,8 +1219,11 @@
             <article class="case glass rv">
                 <span class="tag warm">Segurança · LGPD</span>
                 <p class="impact">Incidente contido e notificado em menos de 24h</p>
-                <p>Recebi um reporte de pesquisador de segurança sobre exposição de dados sensíveis num sistema
-                    legado. Em menos de 24 horas o ciclo inteiro estava fechado: contenção, revogação de tokens,
+                <p>Um caçador de <strong>bug bounty</strong> reportou, por conta própria, uma exposição de dados
+                    sensíveis. A falha estava em um sistema <strong>totalmente legado</strong>, fora do ciclo de
+                    desenvolvimento havia mais de dois anos e mantido no ar apenas para um grupo pequeno de clientes
+                    que ainda dependia dele e conhecia essa condição. Nada disso reduziu a resposta.</p>
+                <p>Em menos de 24 horas o ciclo inteiro estava fechado: contenção, revogação de tokens,
                     expurgo de dados antigos, criptografia aplicada, usuários afetados comunicados e notificação do
                     incidente protocolada junto à <strong>ANPD</strong>.</p>
                 <ul class="how">
@@ -1093,9 +1274,18 @@
             <article class="case glass rv">
                 <span class="tag">Integrações</span>
                 <p class="impact">API de marketplace mudou sem aviso: 1h30 até o deploy</p>
-                <p>Um marketplace alterou, sem aviso prévio, a forma de obter os dados do comprador de uma venda. Do
-                    momento em que o problema apareceu até o deploy da correção em produção: uma hora e meia. A
-                    expedição dos vendedores não parou.</p>
+                <p>Um marketplace alterou, sem aviso prévio, a forma de obter os dados do comprador de uma venda.
+                    A primeira providência não foi técnica: avisamos os usuários sobre a atualização necessária
+                    naquele canal e assumimos publicamente um prazo de cerca de duas horas para resolver. Enquanto
+                    isso, o sistema seguiu processando normalmente as vendas das outras integrações, porque um canal
+                    não derruba os demais.</p>
+                <p>Em menos de uma hora e meia a solução definitiva estava no ar, antes do prazo que havíamos
+                    prometido.</p>
+                <ul class="how">
+                    <li>Comunicação ao usuário antes da correção, com prazo assumido de forma transparente</li>
+                    <li>Isolamento entre integrações: a quebra de um canal não interrompe a operação nos outros</li>
+                    <li>Entrega concluída dentro do prazo prometido, com folga</li>
+                </ul>
             </article>
 
             <article class="case glass wide rv">
@@ -1113,6 +1303,55 @@
                     <li>Arquitetura em microsserviços foi o que tornou a migração viável sob pressão</li>
                     <li>Backups e cofre de segredos testados antes de precisar deles</li>
                     <li>A partir dali, nunca mais dependência de um único provedor</li>
+                </ul>
+            </article>
+
+            <article class="case glass wide rv">
+                <span class="tag warm">Qualidade · Segurança</span>
+                <p class="impact">Cinco camadas de verificação de segurança antes do código ir para produção</p>
+                <p>Montei uma esteira de análise que roda inteira em containers, sem exigir nada instalado na
+                    máquina além do Docker, e que ataca o mesmo sistema por cinco ângulos diferentes: CVE nas
+                    dependências que o código realmente chama, análise estática do código, falhas conhecidas da
+                    imagem e más configurações do Dockerfile, fuzzing guiado pelo contrato OpenAPI e varredura
+                    dinâmica no estilo OWASP API Top 10 contra a aplicação no ar.</p>
+                <p>As versões das ferramentas são fixadas e atualizadas de forma consciente, porque esteira de
+                    segurança que roda em <code>latest</code> muda de resultado sozinha e deixa de ser confiável.
+                    Cada execução gera um relatório datado e arquivado, o que permite comparar e provar evolução ao
+                    longo do tempo.</p>
+                <ul class="how">
+                    <li><strong>govulncheck</strong>: CVE nas dependências efetivamente chamadas pelo código</li>
+                    <li><strong>gosec</strong>: análise estática em busca de padrão inseguro no código-fonte</li>
+                    <li><strong>Trivy</strong>: vulnerabilidade de imagem e má configuração de container</li>
+                    <li><strong>Schemathesis</strong>: fuzzing gerado a partir do OpenAPI, caçando erro 500,
+                        autenticação ignorada e quebra de contrato</li>
+                    <li><strong>OWASP ZAP</strong>: varredura ativa contra a aplicação em execução</li>
+                    <li>Hook de pre-commit que impede versionar <code>.env</code>, chaves e relatórios com
+                        token</li>
+                    <li>Build por script, com revisão e auditoria das bibliotecas e dependências passíveis de
+                        atualização a cada nova versão: dependência desatualizada é dívida de segurança</li>
+                </ul>
+            </article>
+
+            <article class="case glass wide rv">
+                <span class="tag">Qualidade · Testes</span>
+                <p class="impact">Testes que protegem o que a revisão humana deixa passar</p>
+                <p>Boa parte do que quebra um sistema no longo prazo não aparece em revisão de código: é a
+                    dependência que começa a apontar para o lado errado, o pacote de domínio que ganha um acesso a
+                    banco, a rota registrada sem ninguém perceber. Então eu transformei as regras de arquitetura em
+                    teste automatizado: o fluxo de dependência precisa apontar para dentro, o núcleo não pode fazer
+                    I/O e nenhum servidor pode usar o mux global, que qualquer biblioteca de terceiro consegue
+                    sequestrar para expor rota de debug.</p>
+                <p>Do outro lado estão os testes não funcionais, que verificam o comportamento sob concorrência:
+                    nenhuma requisição pode virar erro de servidor, a latência precisa permanecer na ordem de
+                    grandeza esperada e, o mais importante em um sistema multitenant, cada resposta continua sendo
+                    do tenant dono do token mesmo com muitas requisições simultâneas em voo.</p>
+                <ul class="how">
+                    <li>Regras de dependência entre pacotes verificadas automaticamente, não por convenção</li>
+                    <li>Isolamento entre tenants testado sob paralelismo, que é onde o vazamento aparece</li>
+                    <li>Latência monitorada por percentil, com limite de tempo de consulta no banco</li>
+                    <li>Escrevi essas regras também porque um agente de IA não as adivinha lendo um arquivo
+                        isolado: deixá-las executáveis é o que mantém a arquitetura íntegra quando o código cresce
+                        rápido</li>
                 </ul>
             </article>
 
@@ -1161,8 +1400,9 @@
             </article>
 
             <article class="case glass rv">
-                <span class="tag">Comunidade e ensino</span>
-                <p class="impact">8 mil inscritos e um vídeo com mais de 60 mil visualizações</p>
+                <span class="tag">Comunicação e comunidade</span>
+                <p class="impact">8 mil inscritos, 60 mil visualizações em um vídeo e plenária para 300
+                    pessoas</p>
                 <p>Durante cerca de dois anos mantive o canal Dev Tech Tips com publicação regular, sem falhar.
                     O conteúdo era sobre a rotina real de quem desenvolve software: estratégias do dia a dia,
                     decisões técnicas e o que eu mesmo ia aprendendo na jornada. O canal passou de 8 mil inscritos e
@@ -1171,9 +1411,16 @@
                     para quem está começando me obrigou a entender esses assuntos com muito mais profundidade e
                     afiou minha didática, que é exatamente o que eu uso hoje em code review, no treinamento de novos
                     desenvolvedores e na conversa com áreas não técnicas.</p>
+                <p>Também levo isso para o palco. Apresentei no <strong>EcomSummit</strong> em uma plenária com
+                    cerca de <strong>300 pessoas presentes</strong>, com temas como os processos essenciais de uma
+                    operação de e-commerce e como analisar concorrentes dentro dos marketplaces. Conteúdo útil de
+                    verdade para quem estava na plateia e que, ao mesmo tempo, posicionava a empresa sem precisar
+                    soar como propaganda. Também palestrei sobre cibersegurança a convite do <strong>SEBRAE</strong>.</p>
                 <ul class="how">
                     <li>Regularidade de publicação sustentada por cerca de 2 anos, em paralelo à operação</li>
                     <li>Conteúdo sobre prática profissional, não apenas tutorial de ferramenta</li>
+                    <li>Apresentação para plateia de centenas de pessoas, traduzindo tema técnico para público de
+                        negócio</li>
                     <li>Comunicação técnica treinada na prática, com retorno direto de milhares de pessoas</li>
                 </ul>
             </article>
@@ -1199,7 +1446,15 @@
                     API para descobrir o que ela realmente entrega, o que ela não entrega e se vale o investimento.
                     Depois vem a parte que poucos veem: manter tudo isso funcionando em produção, em paralelo, por
                     anos.</p>
+                <p>A prova mais dura dessa especialidade foi conduzir a <strong>certificação do LojaHub no
+                        programa de integradores do Mercado Livre</strong>, um processo de homologação técnica
+                    rigoroso e a certificação mais difícil que a empresa já obteve. Ela é da empresa, não minha,
+                    mas a responsabilidade técnica de conquistá-la e de mantê-la é. E manter é a parte que poucos
+                    enxergam: o programa cobra requisitos que mudam ao longo do tempo e entregas constantes para
+                    continuar certificado. Não é um selo que se pendura na parede, é compromisso recorrente.</p>
                 <ul class="how">
+                    <li>Condução da homologação técnica junto ao Mercado Livre, do requisito à aprovação</li>
+                    <li>Manutenção contínua da certificação, acompanhando mudanças de requisito do programa</li>
                     <li>Estudo da documentação e análise de viabilidade antes de comprometer o roadmap</li>
                     <li>Um ciclo de vida próprio por integração, com repositório e deploy independentes</li>
                     <li>Convivência de contratos, limites e formatos distintos sobre uma base de dados única</li>
@@ -1235,9 +1490,9 @@
     </section>
 
     <!-- ================= LIDERANÇA ================= -->
-    <section class="shell">
+    <section class="shell" id="time">
         <p class="eyebrow rv">Time</p>
-        <h2 class="rv">Eu também formo gente</h2>
+        <h2 class="rv">Faço as pessoas ao meu redor crescerem</h2>
         <p class="lead rv">Isso não compete com a mão no código, pelo contrário: complementa. Um time que cresce é
             o que permite que o sênior pare de ser gargalo. Fiz isso dentro da empresa, com quem contratei, e fora
             dela, com mais de 8 mil pessoas que acompanharam meu canal.</p>
@@ -1276,7 +1531,7 @@
     </section>
 
     <!-- ================= STACK ================= -->
-    <section class="shell">
+    <section class="shell" id="stack">
         <p class="eyebrow rv">Stack</p>
         <h2 class="rv">Com o que eu trabalho</h2>
 
@@ -1361,12 +1616,37 @@
                     <li class="chip">Lynis</li>
                     <li class="chip">Fail2ban</li>
                     <li class="chip">Detecção de rootkit</li>
+                    <li class="chip">SAST e DAST</li>
+                    <li class="chip">gosec</li>
+                    <li class="chip">govulncheck</li>
+                    <li class="chip">Trivy</li>
+                    <li class="chip">OWASP ZAP</li>
+                    <li class="chip">Greenbone</li>
                     <li class="chip">RBAC</li>
                     <li class="chip">Resposta a incidentes</li>
                     <li class="chip">Backup e DR</li>
                     <li class="chip">LGPD / ANPD</li>
                 </ul>
             </div>
+            <div class="stack-block glass rv">
+                <h3>Testes e qualidade</h3>
+                <ul class="chips">
+                    <li class="chip">Testes unitários</li>
+                    <li class="chip">Testes de integração</li>
+                    <li class="chip">Testes E2E</li>
+                    <li class="chip">Testes de regressão</li>
+                    <li class="chip">Testes de arquitetura</li>
+                    <li class="chip">Testes de carga</li>
+                    <li class="chip">Teste de contrato</li>
+                    <li class="chip">Schemathesis</li>
+                    <li class="chip">Linters e análise estática</li>
+                    <li class="chip">Gate no CI</li>
+                    <li class="chip">Feature flags</li>
+                    <li class="chip">Testes A/B</li>
+                    <li class="chip">Code review</li>
+                </ul>
+            </div>
+
             <div class="stack-block glass rv">
                 <h3>IA aplicada</h3>
                 <ul class="chips">
@@ -1385,7 +1665,7 @@
     </section>
 
     <!-- ================= FORMATOS ================= -->
-    <section class="shell">
+    <section class="shell" id="formatos">
         <p class="eyebrow rv">Como podemos trabalhar juntos</p>
         <h2 class="rv">Quatro formatos</h2>
         <p class="lead rv">Depois de dez anos construindo do zero, meu interesse agora é aplicar essa bagagem em um
@@ -1400,7 +1680,9 @@
                     </svg></div>
                 <h3>CLT em São Paulo ou remoto</h3>
                 <p>Engenheiro de software sênior, tech lead, arquiteto ou AI engineer. Presencial, híbrido ou remoto.
-                    Entro para somar ao time, não para reorganizá-lo.</p>
+                    Entro para entregar resultado desde a primeira semana, e se o time precisar de processo,
+                    arquitetura, organização ou liderança, são quatro coisas que eu já fiz na prática e posso
+                    colaborar.</p>
             </div>
 
             <div class="mode glass rv">
@@ -1410,8 +1692,9 @@
                         <path d="M3 7l9 5 9-5M12 12v10" />
                     </svg></div>
                 <h3>PJ por projeto ou alocação</h3>
-                <p>Contratação via <strong>Urnau Tecnologia</strong> ou pela minha pessoa jurídica. Projetos fechados,
-                    integrações, APIs, sustentação de plataforma ou alocação por período.</p>
+                <p>Contratação pela minha pessoa jurídica, a <strong>Urnau Tecnologia</strong> (CNPJ
+                    36.403.727/0001-67). Projetos fechados, integrações, APIs, sustentação de plataforma ou alocação por
+                    período.</p>
             </div>
 
             <div class="mode glass rv">
@@ -1439,7 +1722,7 @@
     </section>
 
     <!-- ================= TRAJETÓRIA ================= -->
-    <section class="shell">
+    <section class="shell" id="trajetoria">
         <p class="eyebrow rv">Trajetória</p>
         <h2 class="rv">De onde eu vim</h2>
 
@@ -1479,7 +1762,7 @@
     </section>
 
     <!-- ================= FORMAÇÃO ================= -->
-    <section class="shell">
+    <section class="shell" id="formacao">
         <p class="eyebrow rv">Formação</p>
         <h2 class="rv">Formado, pós-graduado e continuo em busca de conhecimento e novas experiências</h2>
 
@@ -1493,13 +1776,32 @@
                     Tecnólogo em Desenvolvimento de Sistemas, FIAP · 2019 a 2020</span></div>
         </div>
 
-        <p class="small muted rv" style="margin-top:20px">22 certificações entre Full Cycle (Docker, Kubernetes, DDD,
-            Clean Architecture, Arquitetura Hexagonal, RabbitMQ, API Gateway com Kong, CI/CD, SOLID), Alura (AWS EC2,
-            Lightsail) e FIAP. · Português nativo · Espanhol fluente · Inglês intermediário.</p>
+        <p class="small muted rv" style="margin-top:22px">22 certificações entre Full Cycle (Docker, Kubernetes,
+            DDD, Clean Architecture, Arquitetura Hexagonal, RabbitMQ, API Gateway com Kong, CI/CD, SOLID), Alura
+            (AWS EC2, Lightsail) e FIAP.</p>
+
+        <ul class="idiomas rv">
+            <li>
+                <span class="lang">Português<b>Nativo</b></span>
+                <span class="desc">Comunicação escrita e falada com clareza, inclusive para traduzir assunto
+                    técnico a público de negócio.</span>
+            </li>
+            <li>
+                <span class="lang">Espanhol<b>Avançado</b></span>
+                <span class="desc">Cresci em Foz do Iguaçu, na fronteira com Paraguai e Argentina, e fiz cursos
+                    intensivos do idioma. Leio e converso com desenvoltura.</span>
+            </li>
+            <li>
+                <span class="lang">Inglês<b>Leitura técnica fluente</b></span>
+                <span class="desc">Uso o idioma todos os dias em documentação, código, pesquisa e ferramentas, com
+                    compreensão plena de texto técnico. Na conversação tenho limitação por falta de prática, não de
+                    entendimento, e evoluo rápido quando o uso é constante.</span>
+            </li>
+        </ul>
     </section>
 
     <!-- ================= CONTATO ================= -->
-    <section class="shell">
+    <section class="shell" id="contato">
         <div class="contact glass rv">
             <h2>Vamos conversar</h2>
             <p class="lead" style="margin:0 auto 6px">Se você precisa de alguém que entra, entende o sistema rápido e
@@ -1537,6 +1839,38 @@
                 el.style.transitionDelay = Math.min(i % 6, 5) * 55 + 'ms';
                 io.observe(el);
             });
+        })();
+
+        /* Navegação fixa: aparece depois do hero e marca a seção visível */
+        (function () {
+            var nav = document.querySelector('.topnav');
+            if (!nav) return;
+            var links = [].slice.call(nav.querySelectorAll('a.lnk'));
+            var secs = links.map(function (a) { return document.querySelector(a.getAttribute('href')); });
+            var ativo = null;
+
+            function onScroll() {
+                nav.classList.toggle('show', window.scrollY > 420);
+                var y = window.scrollY + 140, cur = -1;
+                secs.forEach(function (sec, i) {
+                    if (sec && sec.offsetTop <= y) cur = i;
+                });
+                var fim = document.getElementById('contato');
+                if (fim && fim.offsetTop <= y) cur = -1;
+                links.forEach(function (a, i) { a.classList.toggle('active', i === cur); });
+                if (cur > -1 && links[cur] !== ativo) {
+                    ativo = links[cur];
+                    if (ativo.scrollIntoView) ativo.scrollIntoView({ block: 'nearest', inline: 'center' });
+                }
+            }
+
+            var tick = false;
+            window.addEventListener('scroll', function () {
+                if (tick) return;
+                tick = true;
+                requestAnimationFrame(function () { onScroll(); tick = false; });
+            }, { passive: true });
+            onScroll();
         })();
     </script>
 </body>
